@@ -1,0 +1,19 @@
+{
+  "name": "amy",
+  "version": "1.0.0",
+  "description": "dynamic health age bot",
+  "main": "app.js",
+  "dependencies": {
+    "botbuilder": "^3.7.0",
+    "restify": "^4.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "hi"
+  },
+  "keywords": [
+    "dha"
+  ],
+  "author": "",
+  "license": "ISC"
+}
