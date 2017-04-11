@@ -73,14 +73,14 @@ bot.dialog('/', [
     function (session, results) {
         if (results.response) {
             session.send("That's great, to get the best calculation we're going to need the following information:"
-                    + "\n - Height and Weight             (e.g. 1.78 m)"
-                    + "\n - Waist and Hip measurements    (e.g. 82 cm)"
-                    + "\n - Blood pressure                (e.g. 120/80 mmHg)"
-                    + "\n - Cholesterol level             (e.g. 3.8 mmol/L)"
-                    + "\n - Fasting blood glucose level   (e.g. 5.6 mmol/L)"
+                    + "\n - Height and Weight (e.g. 1.78 m)"
+                    + "\n - Waist and Hip measurements (e.g. 82 cm)"
+                    + "\n - Blood pressure (e.g. 120/80 mmHg)"
+                    + "\n - Cholesterol level (e.g. 3.8 mmol/L)"
+                    + "\n - Fasting blood glucose level (e.g. 5.6 mmol/L)"
                     + "\n - and some medical history of your immediate family members.");
             builder.Prompts.confirm(session,"If you are missing any of this information, we can omit it for now and you can add it later."
-                    + "\n\n Would you like to continue to estimate your health age now?", { listStyle: builder.ListStyle.button });
+                    + "\n Would you like to continue to estimate your health age now?", { listStyle: builder.ListStyle.button });
         } else {
             session.endConversation("No problem, please come and talk to me again another time");
         }    
