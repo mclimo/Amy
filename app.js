@@ -371,10 +371,10 @@ function getAboutYouCardsAttachments(session) {
             .title('How to Measure Your Height by Yourself')
             //.subtitle('')
             .text('1. Take off your shoes, socks, and any head accessories. '
-                + '\2. Stand with your back against the wall and your feet together. '
-                + '\3. Place a box on top of your head. Make sure it\'s touching the wall.'
-                + '\4. Make a mark under the box with a pencil.'
-                + '\5. Measure from the floor to the pencil mark with a measuring tape.')
+                + '\n2. Stand with your back against the wall and your feet together. '
+                + '\n3. Place a box on top of your head. Make sure it\'s touching the wall.'
+                + '\n4. Make a mark under the box with a pencil.'
+                + '\n5. Measure from the floor to the pencil mark with a measuring tape.')
             .images([
                 builder.CardImage.create(session, 'http://pad3.whstatic.com/images/thumb/4/4f/Measure-Your-Height-by-Yourself-Step-5-Version-2.jpg/aid1624233-v4-728px-Measure-Your-Height-by-Yourself-Step-5-Version-2.jpg')
             ])
@@ -388,8 +388,8 @@ function getAboutYouCardsAttachments(session) {
             .title('How to Measure Your Weight')
             //.subtitle('')
             .text('1. Get yourself a good body scale.'
-                + '\2. Ideally weight yourself when naked.'
-                + '\3. Try to weigh yourself at the same point each day, such as when you first wake up.')
+                + '\n2. Ideally weight yourself when naked.'
+                + '\n3. Try to weigh yourself at the same point each day, such as when you first wake up.')
             .images([
                 builder.CardImage.create(session, 'https://i.kinja-img.com/gawker-media/image/upload/s--bkrleqh9--/c_scale,fl_progressive,q_80,w_800/18hzc2ov8x4w8jpg.jpg')
             ])
@@ -403,8 +403,8 @@ function getAboutYouCardsAttachments(session) {
             .title('How to Measure Your Waist')
             //.subtitle('')
             .text("1. Remove your outer garments."
-                + "\2. Stand with your feet together."
-                + "\3. Wrap a soft measuring tape straight and snug around the narrowest part of your waist.")
+                + "\n2. Stand with your feet together."
+                + "\n3. Wrap a soft measuring tape straight and snug around the narrowest part of your waist.")
             .images([
                 builder.CardImage.create(session, 'http://www.diabetes.co.uk/images/article_images/measuring-waist.jpg')
             ])
@@ -419,8 +419,8 @@ function getAboutYouCardsAttachments(session) {
             //.subtitle('')
             .text('To correctly measure your Hips:'
                 + '1. Remove your outer garments.'
-                + '\2. Stand with your feet together.'
-                + '\3. Wrap a soft measuring tape straight and snug around the widest part of your hips.')
+                + '\n2. Stand with your feet together.'
+                + '\n3. Wrap a soft measuring tape straight and snug around the widest part of your hips.')
             .images([
                 builder.CardImage.create(session, 'http://1.bp.blogspot.com/_Jp5PY2tunC0/TOtJ_3BejkI/AAAAAAAAADk/2-yHgQFCPic/s1600/hip.jpg')
             ])
