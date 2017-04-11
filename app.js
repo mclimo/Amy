@@ -79,12 +79,12 @@ bot.dialog('/', [
     function (session, results) {
         if (results.response) {
             session.send("That's great, to get the best calculation we're going to need the following information:"
-                    + "\n\n - Height and Weight             (e.g. 1.78 m)"
-                    + "\n\n - Waist and Hip measurements    (e.g. 82 cm)"
-                    + "\n\n - Blood pressure                (e.g. 120/80 mmHg)"
-                    + "\n\n - Cholesterol level             (e.g. 3.8 mmol/L)"
-                    + "\n\n - Fasting blood glucose level   (e.g. 5.6 mmol/L)"
-                    + "\n\n - and some medical history of your immediate family members.");
+                    + "\n - Height and Weight             (e.g. 1.78 m)"
+                    + "\n - Waist and Hip measurements    (e.g. 82 cm)"
+                    + "\n - Blood pressure                (e.g. 120/80 mmHg)"
+                    + "\n - Cholesterol level             (e.g. 3.8 mmol/L)"
+                    + "\n - Fasting blood glucose level   (e.g. 5.6 mmol/L)"
+                    + "\n - and some medical history of your immediate family members.");
             builder.Prompts.confirm(session,"If you are missing any of this information, we can omit it for now and you can add it later."
                     + "\n\n Would you like to continue to estimate your health age now?", { listStyle: builder.ListStyle.button });
         } else {
@@ -180,10 +180,10 @@ bot.dialog('/getHips', [
 bot.dialog('/qThree', [
     function (session) {
         builder.Prompts.confirm(session, 'Q.FOUR - Now some medical history of your immediate family'
-        +'\n\nPlease indicate if your Father, Mother, Brother or Sister have ever had:'
-        +'\n\n- Angina' 
-        +'\n\n- a Heart Attack, or'
-        +'\n\n- a Stroke.', { listStyle: builder.ListStyle.button });
+        +'\nPlease indicate if your Father, Mother, Brother or Sister have ever had:'
+        +'\n- Angina' 
+        +'\n- a Heart Attack, or'
+        +'\n- a Stroke.', { listStyle: builder.ListStyle.button });
     },
     function (session, results) {
         session.userData.familyhistoryattack = results.response;
@@ -371,10 +371,10 @@ function getAboutYouCardsAttachments(session) {
             .title('How to Measure Your Height by Yourself')
             //.subtitle('')
             .text('1. Take off your shoes, socks, and any head accessories. '
-                + '2. Stand with your back against the wall and your feet together. '
-                + '3. Place a box on top of your head. Make sure it\'s touching the wall.'
-                + '4. Make a mark under the box with a pencil.'
-                + '5. Measure from the floor to the pencil mark with a measuring tape.')
+                + '\2. Stand with your back against the wall and your feet together. '
+                + '\3. Place a box on top of your head. Make sure it\'s touching the wall.'
+                + '\4. Make a mark under the box with a pencil.'
+                + '\5. Measure from the floor to the pencil mark with a measuring tape.')
             .images([
                 builder.CardImage.create(session, 'http://pad3.whstatic.com/images/thumb/4/4f/Measure-Your-Height-by-Yourself-Step-5-Version-2.jpg/aid1624233-v4-728px-Measure-Your-Height-by-Yourself-Step-5-Version-2.jpg')
             ])
@@ -388,8 +388,8 @@ function getAboutYouCardsAttachments(session) {
             .title('How to Measure Your Weight')
             //.subtitle('')
             .text('1. Get yourself a good body scale.'
-                + '2. Ideally weight yourself when naked.'
-                + '3. Try to weigh yourself at the same point each day, such as when you first wake up.')
+                + '\2. Ideally weight yourself when naked.'
+                + '\3. Try to weigh yourself at the same point each day, such as when you first wake up.')
             .images([
                 builder.CardImage.create(session, 'https://i.kinja-img.com/gawker-media/image/upload/s--bkrleqh9--/c_scale,fl_progressive,q_80,w_800/18hzc2ov8x4w8jpg.jpg')
             ])
@@ -403,8 +403,8 @@ function getAboutYouCardsAttachments(session) {
             .title('How to Measure Your Waist')
             //.subtitle('')
             .text("1. Remove your outer garments."
-                + "2. Stand with your feet together."
-                + "3. Wrap a soft measuring tape straight and snug around the narrowest part of your waist.")
+                + "\2. Stand with your feet together."
+                + "\3. Wrap a soft measuring tape straight and snug around the narrowest part of your waist.")
             .images([
                 builder.CardImage.create(session, 'http://www.diabetes.co.uk/images/article_images/measuring-waist.jpg')
             ])
@@ -419,8 +419,8 @@ function getAboutYouCardsAttachments(session) {
             //.subtitle('')
             .text('To correctly measure your Hips:'
                 + '1. Remove your outer garments.'
-                + '2. Stand with your feet together.'
-                + '3. Wrap a soft measuring tape straight and snug around the widest part of your hips.')
+                + '\2. Stand with your feet together.'
+                + '\3. Wrap a soft measuring tape straight and snug around the widest part of your hips.')
             .images([
                 builder.CardImage.create(session, 'http://1.bp.blogspot.com/_Jp5PY2tunC0/TOtJ_3BejkI/AAAAAAAAADk/2-yHgQFCPic/s1600/hip.jpg')
             ])
@@ -439,7 +439,7 @@ function getCardsAttachments2(session) {
             .title('How to start Running: Couch to 5k')
             .subtitle('More vigerous exercise will reduce your DHA by 2.5 years')
             .text('Just because you don’t run doesn’t mean you can’t. If you can walk for half an hour, chances are that you can pick up the pace and give running or jogging a try. '
-            +'\n\nBBC Get Inspired has teamed up with Public Health England’s One You campaign to bring you the Couch to 5K programme. '
+            +'\nBBC Get Inspired has teamed up with Public Health England’s One You campaign to bring you the Couch to 5K programme. '
             +'It has been especially designed for people who have done little or no running. ')
             .image(builder.CardImage.create(session, 'https://ichef.bbci.co.uk/images/ic/480xn/p03mn4lx.jpg'))
             .media([
@@ -466,7 +466,7 @@ function getCardsAttachments2(session) {
             .title('Diet Tips: How to cut down on Sugar in your diet')
             .subtitle('Reducing your sugar intake will reduce your DHA by 0.5 years')
             .text('From the age of 11 we should have no more than 30g of added sugars (about 7 sugar cubes) in our diet every day.'
-            + '\n\n Practical tips to help you reduce the amount of sugar you eat throughout the day.')
+            + '\nPractical tips to help you reduce the amount of sugar you eat throughout the day.')
             .media([
                { url: 'http://www.nhs.uk/Livewell/Goodfood/PublishingImages/Sugar-gif-final-nowords_A.gif' }
             ])
