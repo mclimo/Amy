@@ -14,8 +14,8 @@ server.listen(process.env.port || process.env.PORT || 3978, function () {
   
 // Create chat bot
 var connector = new builder.ChatConnector({
-    //appId: process.env.MICROSOFT_APP_ID,
-    //appPassword: process.env.MICROSOFT_APP_PASSWORD
+    //appId: process.env.b4a5e652-6264-4a2f-a5b3-812ba924a645,
+    //appPassword: process.env.ifuUnG6Yw6zMqouEJfMLm6Q
 });
 var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
@@ -300,7 +300,7 @@ bot.dialog('/qSix', [
         builder.Prompts.confirm(session, 'Q.SEVEN - Do you smoke?', {listStyle: builder.ListStyle.button});
     },
     function (session, results) {
-        session.userData.smoker = results.response.entity;
+        session.userData.smoker = results.response;
         session.beginDialog('/results');
     }
 ]);
@@ -495,7 +495,7 @@ bot.dialog('/customerReceipt', [
                         builder.ReceiptItem.create(session, "5.6 mmol\\L", "Fasting Glucose").image(builder.CardImage.create(session, "")),                       
                         builder.ReceiptItem.create(session, session.userData.cholesterol + " mmol\\L", "Cholesterol").image(builder.CardImage.create(session, "")),
                         builder.ReceiptItem.create(session, "No", "Diabetic").image(builder.CardImage.create(session, "")),
-                        builder.ReceiptItem.create(session, session.userData.smoker, "Smoker").image(builder.CardImage.create(session, ""))                       
+                        builder.ReceiptItem.create(session, "Yes", "Smoker").image(builder.CardImage.create(session, ""))                       
                     ])
             ]);
         session.send(msg);
