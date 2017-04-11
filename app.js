@@ -262,7 +262,7 @@ bot.dialog('/qFour', [
         //session.send(session, "Please enter you Blood pressure level in ml/hg");
         session.send("Q.5 - Getting there now."
         + "\n\nNext I need to know your Blood pressure readings.");
-        builder.Prompts.number(session, 'Q.FIVE.A - Please enter your Systolic reading, this is the top number of your reading \n\n (mmHg)');
+        builder.Prompts.number(session, 'Q.5A - Please enter your Systolic reading, this is the top number of your reading \n\n (mmHg)');
     },
 
     function (session, results) {
