@@ -418,7 +418,7 @@ function getAboutYouCardsAttachments(session) {
             .title('How to Measure Your Hips')
             //.subtitle('')
             .text('To correctly measure your Hips:'
-                + '1. Remove your outer garments.'
+                + '\n1. Remove your outer garments.'
                 + '\n2. Stand with your feet together.'
                 + '\n3. Wrap a soft measuring tape straight and snug around the widest part of your hips.')
             .images([
@@ -485,7 +485,7 @@ bot.dialog('/customerReceipt', [
                 new builder.ReceiptCard(session)
                     .title("%s\'s Health Data", session.userData.name)
                     .items([
-                        builder.ReceiptItem.create(session, session.userData.gender, "Gender").image(builder.CardImage.create(session, "")),
+                        //builder.ReceiptItem.create(session, session.userData.gender, "Gender").image(builder.CardImage.create(session, "")),
                         builder.ReceiptItem.create(session, "21.07.82", "Date of Birth").image(builder.CardImage.create(session, "")),
                         builder.ReceiptItem.create(session, session.userData.height +" m", "Height").image(builder.CardImage.create(session, "")),
                         builder.ReceiptItem.create(session, session.userData.weight +" kg", "Weight").image(builder.CardImage.create(session, "")),
