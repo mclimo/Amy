@@ -439,12 +439,12 @@ function getCardsAttachments2(session) {
                    { url: 'https://youtu.be/of0FZaSRk60?t=2s' }
             ])
             .buttons([
-                   builder.CardAction.openUrl(session, 'https://www.nhs.uk/oneyou/apps#row-179', 'One You Couch to 5k app'),
-                   builder.CardAction.openUrl(session, 'http://downloads.bbc.co.uk/scotland/makeyourmove/c25k_printable_plan.pdf', 'Download Plan as a document')
+                   builder.CardAction.openUrl(session, "https://www.nhs.uk/oneyou/apps#row-179', 'One You Couch to 5k app"),
+                   builder.CardAction.openUrl(session, "http://downloads.bbc.co.uk/scotland/makeyourmove/c25k_printable_plan.pdf", 'Download Plan as a document')
             ]),
 
         new builder.HeroCard(session)
-            .title('How to Stop Smoking')
+            .title("How to Stop Smoking")
             .subtitle('Stopping Smoking will reduce your DHA by 1.5 years')
             .text('Find out practical, quick and simple steps you can take NOW to quit successfully. Download the NHS Smokefree app')
             .images([
@@ -488,7 +488,7 @@ bot.dialog('/customerReceipt', [
                         builder.ReceiptItem.create(session, "5.6 mmol\\L", "Fasting Glucose").image(builder.CardImage.create(session, "")),                       
                         builder.ReceiptItem.create(session, session.userData.cholesterol + " mmol\\L", "Cholesterol").image(builder.CardImage.create(session, "")),
                         builder.ReceiptItem.create(session, "No", "Diabetic").image(builder.CardImage.create(session, "")),
-                        builder.ReceiptItem.create(session, "Yes", "Smoker").image(builder.CardImage.create(session, ""))                       
+                        //builder.ReceiptItem.create(session, "Yes", "Smoker").image(builder.CardImage.create(session, ""))                       
                     ])
             ]);
         session.send(msg);
