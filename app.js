@@ -173,7 +173,7 @@ bot.dialog('/getHips', [
 // 3 Family History of sudden illness
 bot.dialog('/qThree', [
     function (session) {
-        builder.Prompts.confirm(session, 'Q.4 - Now some medical history of your immediate family'
+        builder.Prompts.confirm(session, 'Q.4 - Now some medical history of your immediate family,'
         +'\nPlease indicate if your Father, Mother, Brother or Sister have ever had:'
         +'\n- Angina' 
         +'\n- a Heart Attack, or'
