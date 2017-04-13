@@ -431,9 +431,9 @@ function getCardsAttachments2(session) {
         new builder.VideoCard(session)
             .title('How to start Running: Couch to 5k')
             .subtitle('More vigerous exercise will reduce your DHA by 2.5 years')
-            .text('Just because you don’t run doesn’t mean you can’t. If you can walk for half an hour, chances are that you can pick up the pace and give running or jogging a try. '
-            +'\nBBC Get Inspired has teamed up with Public Health England’s One You campaign to bring you the Couch to 5K programme. '
-            +'It has been especially designed for people who have done little or no running. ')
+            .text('Just because you don’t run doesn’t mean you can’t. If you can walk for half an hour, chances are that you can pick up the pace and give running a try. ')
+            //+'\nBBC Get Inspired has teamed up with Public Health England’s One You campaign to bring you the Couch to 5K programme. '
+            //+'It has been especially designed for people who have done little or no running. ')
             .image(builder.CardImage.create(session, 'https://ichef.bbci.co.uk/images/ic/480xn/p03mn4lx.jpg'))
             .media([
                    { url: 'https://youtu.be/of0FZaSRk60?t=2s' }
@@ -458,8 +458,8 @@ function getCardsAttachments2(session) {
         new builder.AnimationCard(session)
             .title('Diet Tips: How to cut down on Sugar in your diet')
             .subtitle('Reducing your sugar intake will reduce your DHA by 0.5 years')
-            .text('From the age of 11 we should have no more than 30g of added sugars (about 7 sugar cubes) in our diet every day.'
-            + '\nPractical tips to help you reduce the amount of sugar you eat throughout the day.')
+            .text('From the age of 11 we should have no more than 30g of added sugars (about 7 sugar cubes) in our diet every day.')
+            //+ '\nPractical tips to help you reduce the amount of sugar you eat throughout the day.')
             .media([
                { url: 'http://www.nhs.uk/Livewell/Goodfood/PublishingImages/Sugar-gif-final-nowords_A.gif' }
             ])
