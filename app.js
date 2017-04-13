@@ -479,7 +479,7 @@ bot.dialog('/customerReceipt', [
                     .title("%s\'s Health Data", session.userData.name)
                     .items([
                         //builder.ReceiptItem.create(session, session.userData.gender, "Gender").image(builder.CardImage.create(session, "")),
-                        builder.ReceiptItem.create(session, "21.07.82", "Date of Birth").image(builder.CardImage.create(session, "")),
+                        //builder.ReceiptItem.create(session, "21.07.82", "Date of Birth").image(builder.CardImage.create(session, "")),
                         builder.ReceiptItem.create(session, session.userData.height +" m", "Height").image(builder.CardImage.create(session, "")),
                         builder.ReceiptItem.create(session, session.userData.weight +" kg", "Weight").image(builder.CardImage.create(session, "")),
                         builder.ReceiptItem.create(session, session.userData.waist +" cm", "Waist Measurement").image(builder.CardImage.create(session, "")),
@@ -487,7 +487,7 @@ bot.dialog('/customerReceipt', [
                         builder.ReceiptItem.create(session, session.userData.bloodpressuresystolic + " / " + session.userData.bloodpressurediastolic + " mmHg", "Blood Pressure").image(builder.CardImage.create(session, "")),
                         builder.ReceiptItem.create(session, "5.6 mmol\\L", "Fasting Glucose").image(builder.CardImage.create(session, "")),                       
                         builder.ReceiptItem.create(session, session.userData.cholesterol + " mmol\\L", "Cholesterol").image(builder.CardImage.create(session, "")),
-                        builder.ReceiptItem.create(session, "No", "Diabetic").image(builder.CardImage.create(session, "")),
+                        //builder.ReceiptItem.create(session, "No", "Diabetic").image(builder.CardImage.create(session, "")),
                         //builder.ReceiptItem.create(session, "Yes", "Smoker").image(builder.CardImage.create(session, ""))                       
                     ])
             ]);
