@@ -47,11 +47,11 @@ function deleteProfile(session) {
 // Handle activities of type 'deleteUserData'
 bot.on('deleteUserData', (message) => {
     // In order to delete any state, we need a session object, so start a dialog
-    bot.beginDialog(message.address, '/deleteprofile');
+    bot.beginDialog(message.address, 'deleteprofile');
 });
 
 // A dialog just for deleting state
-bot.dialog('/deleteprofile', function(session) {
+bot.dialog('deleteprofile', function(session) {
     // Ok, now we have a session so we can delete the state
     deleteProfile(session);
 });
@@ -60,7 +60,7 @@ bot.dialog('/deleteprofile', function(session) {
 function deleteProfileMiddleware() {
     return {
         botbuilder: (session, next) => {
-            if (/^\/deleteprofile$/i.test(session.message.text)) {
+            if (/^deleteprofile$/i.test(session.message.text)) {
                 deleteProfile(session);
             } else {
                 next();
