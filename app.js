@@ -14,8 +14,8 @@ server.listen(process.env.port || process.env.PORT || 3978, function () {
   
 // Create chat bot
 var connector = new builder.ChatConnector({
-    appId: process.env.MICROSOFT_APP_ID,
-    appPassword: process.env.MICROSOFT_APP_PASSWORD
+    //appId: process.env.MICROSOFT_APP_ID,
+    //appPassword: process.env.MICROSOFT_APP_PASSWORD
 });
 var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
@@ -32,6 +32,45 @@ bot.on('conversationUpdate', function (message) {
         });
     }
 });
+
+//=========================================================
+// Delete Session UserData
+//=========================================================
+
+// Clears userData and privateConversationData, then ends the conversation
+function deleteProfile(session) {
+    session.userData = {};
+    session.privateConversationData = {};
+    session.endConversation("User profile deleted");
+}
+
+// Handle activities of type 'deleteUserData'
+bot.on('deleteUserData', (message) => {
+    // In order to delete any state, we need a session object, so start a dialog
+    bot.beginDialog(message.address, '/deleteprofile');
+});
+
+// A dialog just for deleting state
+bot.dialog('/deleteprofile', function(session) {
+    // Ok, now we have a session so we can delete the state
+    deleteProfile(session);
+});
+
+// Creates a middleware to handle the /deleteprofile command
+function deleteProfileMiddleware() {
+    return {
+        botbuilder: (session, next) => {
+            if (/^\/deleteprofile$/i.test(session.message.text)) {
+                deleteProfile(session);
+            } else {
+                next();
+            }
+        }
+    };
+}
+
+// Install middleware
+bot.use(deleteProfileMiddleware());
 
 //=========================================================
 // Bots Dialogs
