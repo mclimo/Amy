@@ -169,14 +169,15 @@ bot.dialog('/qTwo', [
     }
 ]);
 
-//const aboutYou = ["Height","Weight","Waist","Hips"];
-//var aboutYouNotComplete = aboutYou;
-
 bot.dialog('/getHeight', [
     function (session) {
         builder.Prompts.number(session, 'Q.3A - What is your Height in meters? (e.g. 1.76 m)');
     },
     function (session, results) {
+        var i = aboutYouWorking.indexOf("height");
+        aboutYouWorking.splice(i,1);
+        console.log("height");
+        console.log(aboutYouWorking);
         session.userData.height = results.response;
         session.replaceDialog('/aboutYouCarousel');
     }
@@ -186,6 +187,10 @@ bot.dialog('/getWeight', [
         builder.Prompts.number(session, 'Q.3B - What is your Weight in Kilos? (e.g. 72.5 kg)');
     },
     function (session, results) {
+        var i = aboutYouWorking.indexOf("weight");
+        aboutYouWorking.splice(i,1);
+        console.log("weight");
+        console.log(aboutYouWorking);
         session.userData.weight = results.response;
         session.replaceDialog('/aboutYouCarousel');
     }
@@ -195,6 +200,10 @@ bot.dialog('/getWaist', [
         builder.Prompts.number(session, 'Q.3C - What is your Waist measurement in centimeters? (e.g. 82 cm)');
     },
     function (session, results) {
+        var i = aboutYouWorking.indexOf("waist");
+        aboutYouWorking.splice(i,1);
+        console.log("waist");
+        console.log(aboutYouWorking);
         session.userData.waist = results.response;
         session.replaceDialog('/aboutYouCarousel');
     }
@@ -204,6 +213,10 @@ bot.dialog('/getHips', [
         builder.Prompts.number(session, 'Q.3D - What is your Hip measurement in centimeters? (e.g. 84 cm)');
     },
     function (session, results) {
+        var i = aboutYouWorking.indexOf("hips");
+        aboutYouWorking.splice(i,1);
+        console.log("hips");
+        console.log(aboutYouWorking);
         session.userData.hips = results.response;
         session.replaceDialog('/aboutYouCarousel');
     }
@@ -283,15 +296,14 @@ bot.dialog('/familyHistory', [
      }
 ]);
 
+// attack age dialog
 bot.dialog("/attackage", [
     function (session, args) {
-        //attack age
         builder.Prompts.number(session, "Q.4C - At what age did this happen to your "+args+"?");
     },
     function (session, results) {
         session.userData.familyhistoryattack.age = results.response;   
         session.replaceDialog("/familyHistory");
-        //bot.end
      }
 ]);
 
@@ -337,8 +349,7 @@ bot.dialog('/qSix', [
     }
 ]);
 
-
-
+// Results dialog
 bot.dialog('/results', [
     function (session) {
         session.send("Q.R - Thank you for taking the time to complete these questions, our calculations show that you're Dynamic Health Age (DHA) is 39.5 years. "
@@ -362,25 +373,129 @@ bot.dialog('/results', [
     }
 ]);
 
+const aboutYouMeasures = ["height", "weight", "waist", "hips"];
+const aboutYouArray = {
+    "height": {
+        title: "How to Measure Your Height by Yourself",
+        text: "1. Take off your shoes, socks, and any head accessories. "
+                + "\n2. Stand with your back against the wall and your feet together. "
+                + "\n3. Place a box on top of your head. Make sure it\'s touching the wall."
+                + "\n4. Make a mark under the box with a pencil."
+                + "\n5. Measure from the floor to the pencil mark with a measuring tape.",
+        images: "http://pad3.whstatic.com/images/thumb/4/4f/Measure-Your-Height-by-Yourself-Step-5-Version-2.jpg/aid1624233-v4-728px-Measure-Your-Height-by-Yourself-Step-5-Version-2.jpg",
+        buttons: {
+            button1: {
+                action: "height",
+                title: "Enter your Height"
+            },
+            button2: {
+                action: "skip",
+                title: "I'll complete this later"
+            }
+        }
+    },
+    "weight": {
+        title: "How to Measure Your Weight",
+        text: "1. Get yourself a good body scale."
+                + "\n2. Ideally weight yourself when naked."
+                + "\n3. Try to weigh yourself at the same point each day, such as when you first wake up.",
+        images: "https://i.kinja-img.com/gawker-media/image/upload/s--bkrleqh9--/c_scale,fl_progressive,q_80,w_800/18hzc2ov8x4w8jpg.jpg",
+        buttons: {
+            button1: {
+                action: "weight",
+                title: "Enter your weight"
+            },
+            button2: {
+                action: "skip",
+                title: "I'll complete this later"
+            }
+        }            
+    },
+    "waist": {
+        title: "How to Measure Your Waist",
+        text: "1. Remove your outer garments."
+                + "\n2. Stand with your feet together."
+                + "\n3. Wrap a soft measuring tape straight and snug around the narrowest part of your waist.",
+        images: "http://www.diabetes.co.uk/images/article_images/measuring-waist.jpg",
+        buttons: {
+            button1: {
+                action: "waist",
+                title: "Enter your Waist Measurement"
+            },
+            button2: {
+                action: "skip",
+                title: "I'll complete this later"
+            }
+        }
+    },
+    "hips": {
+        title: "How to Measure Your Hips",
+        text: "To correctly measure your Hips:"
+                + "\n1. Remove your outer garments."
+                + "\n2. Stand with your feet together."
+                + "\n3. Wrap a soft measuring tape straight and snug around the widest part of your hips.",
+        images: "http://1.bp.blogspot.com/_Jp5PY2tunC0/TOtJ_3BejkI/AAAAAAAAADk/2-yHgQFCPic/s1600/hip.jpg",
+        buttons: {
+            button1: {
+                action: "hips",
+                title: "Enter your Hip Measurement"
+            },
+            button2: {
+                action: "skip",
+                title: "I'll complete this later"
+            }
+        }
+    }
+};
+var aboutYouWorking = aboutYouMeasures;
+var aboutYouCheck = false;
+var aboutYouBasic1 = "Q.3a - Next some of your basic body measurements, please complete all of these.";
+var aboutYouBasic2 = "Q.3b - That's great, keep going";
+
 // Dialog that contains the constructor for the About You carousel
 bot.dialog('/aboutYouCarousel', [
     function (session) {
-        session.send("Q.3 - Next some of your basic body measurements, please complete all of these.")
-        var cards = getAboutYouCardsAttachments();
-        
+        if (aboutYouWorking.length === 0){
+            session.replaceDialog('/qThree');
+        }
+        if (!aboutYouCheck) {
+            session.send(aboutYouBasic1)
+        } else {
+            session.send(aboutYouBasic2)
+        }
+        var cards = [];
+        //var cards = getAboutYouCardsAttachments();
+        for (i=0; i<aboutYouWorking.length;i++) {
+                cards.push(getCard(session, aboutYouWorking[i]));
+                console.log(aboutYouWorking);
+        }
+        // bring the arrays up one level
+        var cardsFinal = cards.concat(cards[0],cards[1],cards[2],cards[3]);        
+        // remove the arrays at the start
+        cardsFinal.splice(0,aboutYouWorking.length);
         // create reply with Carousel AttachmentLayout
         var reply = new builder.Message(session)
             .attachmentLayout(builder.AttachmentLayout.carousel)
-            .attachments(cards);
+            .attachments(cardsFinal);
         session.send(reply);
-        //session.beginDialog('height');
-        //session.endDialog();
-    },
-    function (session, results) {
-        session.send('I made it to the response')
-        session.beginDialog(results.response.entity);
     }
 ]);
+
+function getCard (session, args) {
+    aboutYouCheck = true;
+    return [
+        new builder.HeroCard(session)
+            .title(aboutYouArray[args].title)
+            .text(aboutYouArray[args].text)
+            .images([
+                builder.CardImage.create(session, aboutYouArray[args].images)
+                ])
+            .buttons([
+                builder.CardAction.dialogAction(session, aboutYouArray[args].buttons.button1.action, null, aboutYouArray[args].buttons.button1.title),
+                builder.CardAction.dialogAction(session, aboutYouArray[args].buttons.button2.action, null, aboutYouArray[args].buttons.button2.title)
+            ])
+    ]
+}
 
 // Dialog that contains the constructor for the Results carousel
 bot.dialog('/resultsCarousel', [
@@ -395,74 +510,6 @@ bot.dialog('/resultsCarousel', [
         session.endConversation();
     }
 ]);
-
-// method providing cards for the About You Carousel
-function getAboutYouCardsAttachments(session) {
-    return [
-        new builder.HeroCard(session)
-            .title('How to Measure Your Height by Yourself')
-            //.subtitle('')
-            .text('1. Take off your shoes, socks, and any head accessories. '
-                + '\n2. Stand with your back against the wall and your feet together. '
-                + '\n3. Place a box on top of your head. Make sure it\'s touching the wall.'
-                + '\n4. Make a mark under the box with a pencil.'
-                + '\n5. Measure from the floor to the pencil mark with a measuring tape.')
-            .images([
-                builder.CardImage.create(session, 'http://pad3.whstatic.com/images/thumb/4/4f/Measure-Your-Height-by-Yourself-Step-5-Version-2.jpg/aid1624233-v4-728px-Measure-Your-Height-by-Yourself-Step-5-Version-2.jpg')
-            ])
-            //.tap(builder.CardAction.openUrl(session, 'http://pad3.whstatic.com/images/thumb/4/4f/Measure-Your-Height-by-Yourself-Step-5-Version-2.jpg/aid1624233-v4-728px-Measure-Your-Height-by-Yourself-Step-5-Version-2.jpg'))
-            .buttons([
-                builder.CardAction.dialogAction(session, 'height', null, "Enter your Height"),
-                builder.CardAction.dialogAction(session, 'skip', null, "I'll complete this later")
-            ]),
-
-        new builder.HeroCard(session)
-            .title('How to Measure Your Weight')
-            //.subtitle('')
-            .text('1. Get yourself a good body scale.'
-                + '\n2. Ideally weight yourself when naked.'
-                + '\n3. Try to weigh yourself at the same point each day, such as when you first wake up.')
-            .images([
-                builder.CardImage.create(session, 'https://i.kinja-img.com/gawker-media/image/upload/s--bkrleqh9--/c_scale,fl_progressive,q_80,w_800/18hzc2ov8x4w8jpg.jpg')
-            ])
-            //.tap(builder.CardAction.openUrl(session, 'https://i.kinja-img.com/gawker-media/image/upload/s--bkrleqh9--/c_scale,fl_progressive,q_80,w_800/18hzc2ov8x4w8jpg.jpg'))            
-            .buttons([
-                builder.CardAction.dialogAction(session, 'weight', null, 'Enter your Weight'),
-                builder.CardAction.dialogAction(session, 'skip', null, "I'll complete this later")
-            ]),
-
-       new builder.HeroCard(session)
-            .title('How to Measure Your Waist')
-            //.subtitle('')
-            .text("1. Remove your outer garments."
-                + "\n2. Stand with your feet together."
-                + "\n3. Wrap a soft measuring tape straight and snug around the narrowest part of your waist.")
-            .images([
-                builder.CardImage.create(session, 'http://www.diabetes.co.uk/images/article_images/measuring-waist.jpg')
-            ])
-            //.tap(builder.CardAction.openUrl(session, 'http://www.diabetes.co.uk/images/article_images/measuring-waist.jpg'))            
-            .buttons([
-                builder.CardAction.dialogAction(session, 'waist', null, 'Enter your Waist Measurement'),
-                builder.CardAction.dialogAction(session, 'skip', null, "I'll complete this later")
-            ]),
-       
-       new builder.HeroCard(session)
-            .title('How to Measure Your Hips')
-            //.subtitle('')
-            .text('To correctly measure your Hips:'
-                + '\n1. Remove your outer garments.'
-                + '\n2. Stand with your feet together.'
-                + '\n3. Wrap a soft measuring tape straight and snug around the widest part of your hips.')
-            .images([
-                builder.CardImage.create(session, 'http://1.bp.blogspot.com/_Jp5PY2tunC0/TOtJ_3BejkI/AAAAAAAAADk/2-yHgQFCPic/s1600/hip.jpg')
-            ])
-            //.tap(builder.CardAction.openUrl(session, 'http://1.bp.blogspot.com/_Jp5PY2tunC0/TOtJ_3BejkI/AAAAAAAAADk/2-yHgQFCPic/s1600/hip.jpg'))            
-            .buttons([
-                builder.CardAction.dialogAction(session, 'hips', null, 'Enter your Hip Measurement'),
-                builder.CardAction.dialogAction(session, 'skip', null, "I'll complete this later")
-            ])
-    ];
-}
 
 // method providing cards for the Results Carousel
 function getCardsAttachments2(session) {
