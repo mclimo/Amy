@@ -543,7 +543,20 @@ function getCardsAttachments2(session) {
             ])
             .buttons([
                 builder.CardAction.openUrl(session, 'http://www.nhs.uk/Livewell/Goodfood/Pages/how-to-cut-down-on-sugar-in-your-diet.aspx', '10 Practical Tips')
+            ]),
+        
+        new builder.HeroCard(session)
+            .title('Diet Tips: How to cut down on Sugar in your diet')
+            .subtitle('Reducing your sugar intake will reduce your DHA by 0.5 years')
+            .text('From the age of 11 we should have no more than 30g of added sugars (about 7 sugar cubes) in our diet every day.')
+            //+ '\nPractical tips to help you reduce the amount of sugar you eat throughout the day.')
+            .images([
+               builder.CardImage.create(session, "http://www.nhs.uk/Livewell/Goodfood/PublishingImages/Sugar-gif-final-nowords_A.gif")
             ])
+            .buttons([
+                builder.CardAction.openUrl(session, 'http://www.nhs.uk/Livewell/Goodfood/Pages/how-to-cut-down-on-sugar-in-your-diet.aspx', '10 Practical Tips')
+            ])
+
     ];
 }
 
