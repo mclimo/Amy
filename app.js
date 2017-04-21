@@ -176,8 +176,6 @@ bot.dialog('/getHeight', [
     function (session, results) {
         var i = aboutYouWorking.indexOf("height");
         aboutYouWorking.splice(i,1);
-        console.log("height");
-        console.log(aboutYouWorking);
         session.userData.height = results.response;
         session.replaceDialog('/aboutYouCarousel');
     }
@@ -189,8 +187,6 @@ bot.dialog('/getWeight', [
     function (session, results) {
         var i = aboutYouWorking.indexOf("weight");
         aboutYouWorking.splice(i,1);
-        console.log("weight");
-        console.log(aboutYouWorking);
         session.userData.weight = results.response;
         session.replaceDialog('/aboutYouCarousel');
     }
@@ -202,8 +198,6 @@ bot.dialog('/getWaist', [
     function (session, results) {
         var i = aboutYouWorking.indexOf("waist");
         aboutYouWorking.splice(i,1);
-        console.log("waist");
-        console.log(aboutYouWorking);
         session.userData.waist = results.response;
         session.replaceDialog('/aboutYouCarousel');
     }
@@ -215,8 +209,6 @@ bot.dialog('/getHips', [
     function (session, results) {
         var i = aboutYouWorking.indexOf("hips");
         aboutYouWorking.splice(i,1);
-        console.log("hips");
-        console.log(aboutYouWorking);
         session.userData.hips = results.response;
         session.replaceDialog('/aboutYouCarousel');
     }
