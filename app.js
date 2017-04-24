@@ -573,12 +573,10 @@ bot.dialog('/resultsCarousel', [
 function getCardsAttachments(session) {
     return [
         new builder.VideoCard(session)
-            .title('How to start Running: Couch to 5k')
-            .subtitle('More vigerous exercise will reduce your DHA by 2.5 years')
-            .text('Just because you don’t run doesn’t mean you can’t. If you can walk for half an hour, chances are that you can pick up the pace and give running a try. ')
-            //+'\nBBC Get Inspired has teamed up with Public Health England’s One You campaign to bring you the Couch to 5K programme. '
-            //+'It has been especially designed for people who have done little or no running. ')
-            .image(builder.CardImage.create(session, 'https://ichef.bbci.co.uk/images/ic/480xn/p03mn4lx.jpg'))
+            .title("How to start Running: Couch to 5k")
+            .subtitle("More vigerous exercise will reduce your DHA by 2.5 years")
+            .text("Just because you don’t run doesn’t mean you can’t. If you can walk for half an hour, chances are that you can pick up the pace and give running a try.")
+            .image(builder.CardImage.create(session, "https://ichef.bbci.co.uk/images/ic/480xn/p03mn4lx.jpg"))
             .media([
                    { url: 'https://youtu.be/of0FZaSRk60?t=2s' }
             ])
@@ -589,40 +587,27 @@ function getCardsAttachments(session) {
 
         new builder.HeroCard(session)
             .title("How to Stop Smoking")
-            .subtitle('Stopping Smoking will reduce your DHA by 1.5 years')
-            .text('Find out practical, quick and simple steps you can take NOW to quit successfully. Download the NHS Smokefree app')
+            .subtitle("Stopping Smoking will reduce your DHA by 1.5 years")
+            .text("Find out practical, quick and simple steps you can take NOW to quit successfully. Download the NHS Smokefree app")
             .images([
-                builder.CardImage.create(session, 'http://www.deanspharmacy.co.uk/kilmarnock/services/stop-smoking-clinics/nhs-prescriptions.jpg')
+                builder.CardImage.create(session, "http://www.deanspharmacy.co.uk/kilmarnock/services/stop-smoking-clinics/nhs-prescriptions.jpg")
             ])
             .buttons([
-                builder.CardAction.openUrl(session, 'http://nhs.uk/oneyou/sfreei', 'iTunes'),
-                builder.CardAction.openUrl(session, 'http://nhs.uk/oneyou/sfreea', 'Google Play')
+                builder.CardAction.openUrl(session, "http://nhs.uk/oneyou/sfreei", "iTunes"),
+                builder.CardAction.openUrl(session, "http://nhs.uk/oneyou/sfreea", "Google Play")
             ]),
 
         new builder.AnimationCard(session)
-            .title('Diet Tips: How to cut down on Sugar in your diet')
-            .subtitle('Reducing your sugar intake will reduce your DHA by 0.5 years')
-            .text('From the age of 11 we should have no more than 30g of added sugars (about 7 sugar cubes) in our diet every day.')
+            .title("Diet Tips: How to cut down on Sugar in your diet")
+            .subtitle("Reducing your sugar intake will reduce your DHA by 0.5 years")
+            .text("From the age of 11 we should have no more than 30g of added sugars (about 7 sugar cubes) in our diet every day.")
             .image(builder.CardImage.create(session, "https://photos-6.dropbox.com/t/2/AABBhS94DJ1nJgzThLIJ9i5P7jHYHLz9TzQZm0CS5lO6Cw/12/315907919/png/32x32/1/_/1/2/Sugar.png/EPyl47cCGCkgBygH/5tPzPqo2CUJdvFKF1TNsDM4Zwz3s4vGd3q-xS_FoKmg?size=1280x960&size_mode=3"))
             .media([
-               { url: 'https://dl.dropboxusercontent.com/content_link/EOsSabT9XBQoj2cuipbjNSK7MnDRzzlCl7YiyjZ9vLaocNCqENuvJnlzjXf78a5y/file?dl=0&duc_id=HsladKdKcqeYUCgpkt9xn3wmaF3Eb7v96lya796wkoCUwhe1Xc8ItobWY8NRukQr&raw=1&size=1280x960&size_mode=3' }
+               { url: "https://dl.dropboxusercontent.com/content_link/EOsSabT9XBQoj2cuipbjNSK7MnDRzzlCl7YiyjZ9vLaocNCqENuvJnlzjXf78a5y/file?dl=0&duc_id=HsladKdKcqeYUCgpkt9xn3wmaF3Eb7v96lya796wkoCUwhe1Xc8ItobWY8NRukQr&raw=1&size=1280x960&size_mode=3" }
             ])
             .buttons([
-                builder.CardAction.openUrl(session, 'http://www.nhs.uk/Livewell/Goodfood/Pages/how-to-cut-down-on-sugar-in-your-diet.aspx', '10 Practical Tips')
+                builder.CardAction.openUrl(session, "http://www.nhs.uk/Livewell/Goodfood/Pages/how-to-cut-down-on-sugar-in-your-diet.aspx", "10 Practical Tips")
             ])
-        
-        /*new builder.HeroCard(session)
-            .title('Diet Tips: How to cut down on Sugar in your diet')
-            .subtitle('Reducing your sugar intake will reduce your DHA by 0.5 years')
-            .text('From the age of 11 we should have no more than 30g of added sugars (about 7 sugar cubes) in our diet every day.')
-            //+ '\nPractical tips to help you reduce the amount of sugar you eat throughout the day.')
-            .images([
-               builder.CardImage.create(session, "http://www.nhs.uk/Livewell/Goodfood/PublishingImages/Sugar-gif-final-nowords_A.gif")
-            ])
-            //.buttons([
-            //    builder.CardAction.openUrl(session, 'http://www.nhs.uk/Livewell/Goodfood/Pages/how-to-cut-down-on-sugar-in-your-diet.aspx', '10 Practical Tips')
-            //])*/
-
     ];
 }
 
