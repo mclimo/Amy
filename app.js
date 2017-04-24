@@ -608,7 +608,7 @@ function getCardsAttachments(session) {
             //.image.url("")
             //.image.alt("Animation of sugar pouring into a mug of tea")
             .media([
-               { url: 'http://www.nhs.uk/Livewell/Goodfood/PublishingImages/Sugar-gif-final-nowords_A.gif' }
+               { url: 'https://www.dropbox.com/s/2pstvennb0qyvo4/Sugar.gif?dl=0' }
             ])
             .buttons([
                 builder.CardAction.openUrl(session, 'http://www.nhs.uk/Livewell/Goodfood/Pages/how-to-cut-down-on-sugar-in-your-diet.aspx', '10 Practical Tips')
