@@ -406,6 +406,12 @@ bot.dialog('/smoker', [
 // Results dialog
 bot.dialog('/results', [
     function (session) {
+        var msg = new builder.Message(session)
+            .attachments([{
+                contentType: "image/jpeg",
+                contentUrl: "https://www.axappphealthcare.co.uk/uploadedImages/Widget_Content_%28PB%29/Products/Corporate/Health_services/healthgateway-both.jpg"
+            }]);
+        session.send(msg);
         session.send("Thank you for taking the time to complete these questions! Your Health Age is 68 Yrs 2 Mo, and you can reduce this by 17 yrs and 2 Mo."
                     + "Have a look at your Health Age journey and progress at a glance.");
         builder.Prompts.choice(session, "Do you want to see your results in more detail and find out how to make the right changes to improve your Health Age?",
@@ -441,11 +447,7 @@ const aboutYouArray = {
             button1: {
                 action: "height",
                 title: "Enter your Height"
-            }//,
-            //button2: {
-            //    action: "skip",
-            //    title: "I'll complete this later"
-            //}
+            }
         }
     },
     "weight": {
@@ -458,11 +460,7 @@ const aboutYouArray = {
             button1: {
                 action: "weight",
                 title: "Enter your weight"
-            }//,
-            //button2: {
-            //    action: "skip",
-            //    title: "I'll complete this later"
-            //}
+            }
         }            
     },
     "waist": {
@@ -608,7 +606,7 @@ function getCardsAttachments(session) {
             //.image.url("")
             //.image.alt("Animation of sugar pouring into a mug of tea")
             .media([
-               { url: 'https://www.dropbox.com/s/2pstvennb0qyvo4/Sugar.gif?dl=0' }
+               { url: 'https://dl.dropboxusercontent.com/content_link/EOsSabT9XBQoj2cuipbjNSK7MnDRzzlCl7YiyjZ9vLaocNCqENuvJnlzjXf78a5y/file?dl=0&duc_id=HsladKdKcqeYUCgpkt9xn3wmaF3Eb7v96lya796wkoCUwhe1Xc8ItobWY8NRukQr&raw=1&size=1280x960&size_mode=3' }
             ])
             .buttons([
                 builder.CardAction.openUrl(session, 'http://www.nhs.uk/Livewell/Goodfood/Pages/how-to-cut-down-on-sugar-in-your-diet.aspx', '10 Practical Tips')
