@@ -433,7 +433,7 @@ bot.dialog('/results', [
     }
 ]);
 
-const aboutYouMeasures = ["height", "weight", "waist", "hips"];
+const aboutYouMeasures = ["waist", "hips"];
 const aboutYouArray = {
     "height": {
         title: "How to Measure Your Height by Yourself",
