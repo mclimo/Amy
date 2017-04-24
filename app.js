@@ -503,8 +503,8 @@ const aboutYouArray = {
 };
 var aboutYouWorking = aboutYouMeasures;
 var aboutYouCheck = false;
-var aboutYouBasic1 = "What's your height and weight? If you're not sure, just enter what you think it is for now.";
-var aboutYouBasic2 = "That's great, keep going";
+var aboutYouBasic1 = "Next I need to find your waist and hip measurement. But you can add this later if you want!";
+var aboutYouBasic2 = "That's great, keep going.";
 
 // Dialog that contains the constructor for the About You carousel
 bot.dialog('/aboutYouCarousel', [
