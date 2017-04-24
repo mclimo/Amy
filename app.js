@@ -468,7 +468,7 @@ const aboutYouArray = {
         text: "1. Remove your outer garments."
                 + "\n2. Stand with your feet together."
                 + "\n3. Wrap a soft measuring tape straight and snug around the narrowest part of your waist.",
-        images: "https://pppamy.file.core.windows.net/pppamy/Waist card.jpg",
+        images: "https://pppamy.file.core.windows.net/pppamy/Waist_card.jpg",
         buttons: {
             button1: {
                 action: "waist",
@@ -486,7 +486,7 @@ const aboutYouArray = {
                 + "\n1. Remove your outer garments."
                 + "\n2. Stand with your feet together."
                 + "\n3. Wrap a soft measuring tape straight and snug around the widest part of your hips.",
-        images: "https://pppamy.file.core.windows.net/pppamy/Hips card.jpg",
+        images: "https://pppamy.file.core.windows.net/pppamy/Hips_card.jpg",
         buttons: {
             button1: {
                 action: "hips",
