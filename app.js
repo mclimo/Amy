@@ -13,8 +13,8 @@ server.listen(process.env.port || process.env.PORT || 3978, function () {
   
 // Create chat bot
 var connector = new builder.ChatConnector({
-    appId: process.env.MICROSOFT_APP_ID,
-    appPassword: process.env.MICROSOFT_APP_PASSWORD
+    //appId: process.env.MICROSOFT_APP_ID,
+    //appPassword: process.env.MICROSOFT_APP_PASSWORD
 });
 var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
@@ -131,7 +131,7 @@ bot.dialog('/getName', [
 // 1 Gender
 bot.dialog('/qOne', [
     function (session) {
-        builder.Prompts.choice(session, "Lets find out about you! \n\nAre you a man or a woman?","Male|Female", { 
+        builder.Prompts.choice(session, "Lets find out about you! Are you a man or a woman?","Male|Female", { 
             listStyle: builder.ListStyle.button 
         });
     },
@@ -331,7 +331,8 @@ bot.dialog('/qFive', [
                 session.beginDialog('/cholesterol');
                 break;
             case "I don't know":
-                session.userData.cholesterol = "Not known";
+                session.userData.cholesterolTotal = "Not known";
+                session.userData.cholesterolHDL = "Not known";
                 session.beginDialog('/wasItHigh', "cholesterol");
                 break;
         }
@@ -362,11 +363,11 @@ bot.dialog('/cholesterol', [
         builder.Prompts.number(session, "Please enter your total cholesterol mg/dL or mmol/L");
     },
     function (session, results) {
-        session.userData.cholesterol.total = results.response;
+        session.userData.cholesterolTotal = results.response;
         builder.Prompts.number(session, "And what is your HDL cholesterol level in mg/dL or mmol/L?");
     },
     function (session, results) {
-        session.userData.cholesterol.HDL = results.response;
+        session.userData.cholesterolHDL = results.response;
         session.replaceDialog('/qSix');
     }
 ]);
