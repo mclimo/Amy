@@ -624,9 +624,9 @@ bot.dialog('/customerReceipt', [
                         //builder.ReceiptItem.create(session, "21.07.82", "Date of Birth").image(builder.CardImage.create(session, "")),
                         builder.ReceiptItem.create(session, "1.76 m", "Height"),//.image(builder.CardImage.create(session, "")),
                         builder.ReceiptItem.create(session, "72.4 kg", "Weight"),//.image(builder.CardImage.create(session, "")),
-                        builder.ReceiptItem.create(session, "82 cm", "Waist Measurement"),//.image(builder.CardImage.create(session, "")),
-                        builder.ReceiptItem.create(session, "84 cm", "Hip Measurement"),//.image(builder.CardImage.create(session, "")),                        
-                        builder.ReceiptItem.create(session, "125 93 mmHg", "Blood Pressure")//.image(builder.CardImage.create(session, "")),
+                        //builder.ReceiptItem.create(session, "82 cm", "Waist Measurement"),//.image(builder.CardImage.create(session, "")),
+                        //builder.ReceiptItem.create(session, "84 cm", "Hip Measurement"),//.image(builder.CardImage.create(session, "")),                        
+                        //builder.ReceiptItem.create(session, "125 93 mmHg", "Blood Pressure")//.image(builder.CardImage.create(session, "")),
                         //builder.ReceiptItem.create(session, "5.6 mmol\\L", "Fasting Glucose")//.image(builder.CardImage.create(session, ""))                       
                         //builder.ReceiptItem.create(session, "5.6 mmol\\L", "Cholesterol").image(builder.CardImage.create(session, ""))
                         //builder.ReceiptItem.create(session, "No", "Diabetic").image(builder.CardImage.create(session, "")),
