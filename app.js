@@ -148,24 +148,24 @@ bot.dialog('/qTwo', [
     },
     function (session, results) {
         session.userData.dob = results.response;
-        session.replaceDialog('/aboutYouCarousel');
+        session.replaceDialog('/getHeight');
     }
 ]);
 
 bot.dialog('/getHeight', [
     function (session) {
-        builder.Prompts.number(session, 'What is your Height in meters? (e.g. 1.76 m)');
+        builder.Prompts.number(session, 'What is your height in meters? If you\'re not sure, just enter what you think it is for now. (e.g. 1.76 m)');
     },
     function (session, results) {
         var i = aboutYouWorking.indexOf("height");
         aboutYouWorking.splice(i,1);
         session.userData.height = results.response;
-        session.replaceDialog('/aboutYouCarousel');
+        session.replaceDialog('/getWeight');
     }
 ]);
 bot.dialog('/getWeight', [
     function (session) {
-        builder.Prompts.number(session, 'What is your Weight in Kilos? (e.g. 72.5 kg)');
+        builder.Prompts.number(session, 'What is your weight in Kilos? (e.g. 72.5 kg)');
     },
     function (session, results) {
         var i = aboutYouWorking.indexOf("weight");
@@ -176,7 +176,7 @@ bot.dialog('/getWeight', [
 ]);
 bot.dialog('/getWaist', [
     function (session) {
-        builder.Prompts.number(session, 'What is your Waist measurement in centimeters? (e.g. 82 cm)');
+        builder.Prompts.number(session, 'What is your waist measurement in centimeters? (e.g. 82 cm)');
     },
     function (session, results) {
         var i = aboutYouWorking.indexOf("waist");
@@ -187,7 +187,7 @@ bot.dialog('/getWaist', [
 ]);
 bot.dialog('/getHips', [
     function (session) {
-        builder.Prompts.number(session, 'What is your Hip measurement in centimeters? (e.g. 84 cm)');
+        builder.Prompts.number(session, 'What is your hip measurement in centimeters? (e.g. 84 cm)');
     },
     function (session, results) {
         var i = aboutYouWorking.indexOf("hips");
@@ -458,11 +458,11 @@ const aboutYouArray = {
             button1: {
                 action: "weight",
                 title: "Enter your weight"
-            },
-            button2: {
-                action: "skip",
-                title: "I'll complete this later"
-            }
+            }//,
+            //button2: {
+            //    action: "skip",
+            //    title: "I'll complete this later"
+            //}
         }            
     },
     "waist": {
