@@ -409,7 +409,7 @@ bot.dialog('/results', [
         var msg = new builder.Message(session)
             .attachments([{
                 contentType: "image/jpeg",
-                contentUrl: "https://www.axappphealthcare.co.uk/uploadedImages/Widget_Content_%28PB%29/Products/Corporate/Health_services/healthgateway-both.jpg"
+                contentUrl: "https://dl.dropboxusercontent.com/content_link/EOsSabT9XBQoj2cuipbjNSK7MnDRzzlCl7YiyjZ9vLaocNCqENuvJnlzjXf78a5y/file?dl=0&duc_id=HsladKdKcqeYUCgpkt9xn3wmaF3Eb7v96lya796wkoCUwhe1Xc8ItobWY8NRukQr&raw=1&size=1280x960&size_mode=3"
             }]);
         session.send(msg);
         session.send("Thank you for taking the time to complete these questions! Your Health Age is 68 Yrs 2 Mo, and you can reduce this by 17 yrs and 2 Mo."
