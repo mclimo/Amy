@@ -409,7 +409,7 @@ bot.dialog('/results', [
         var msg = new builder.Message(session)
             .attachments([{
                 contentType: "image/jpeg",
-                contentUrl: "https://photos-3.dropbox.com/t/2/AADDkkNNNfIUBEVeyGnom6CCISRLrl7vZ4ypGA7_74rVWA/12/315907919/jpeg/32x32/1/_/1/2/Health%20Age%20journey%20-%20result%20screen.jpg/EPyl47cCGCsgBygH/yaF1aKZsqk3Cr8EkznVNqnJv5fm0IMu2uqcy8ZsXuo0?size=1280x960&size_mode=3"
+                contentUrl: "https://drive.google.com/file/d/0Bz7wIzeGyNusWUNmUmllbW1jN1U/view?usp=sharing"
             }]);
         session.send(msg);
         session.send("Thank you for taking the time to complete these questions! Your Health Age is 68 Yrs 2 Mo, and you can reduce this by 17 yrs and 2 Mo. "
