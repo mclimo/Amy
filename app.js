@@ -603,8 +603,7 @@ function getCardsAttachments(session) {
             .title('Diet Tips: How to cut down on Sugar in your diet')
             .subtitle('Reducing your sugar intake will reduce your DHA by 0.5 years')
             .text('From the age of 11 we should have no more than 30g of added sugars (about 7 sugar cubes) in our diet every day.')
-            .image.url("https://photos-6.dropbox.com/t/2/AABBhS94DJ1nJgzThLIJ9i5P7jHYHLz9TzQZm0CS5lO6Cw/12/315907919/png/32x32/1/_/1/2/Sugar.png/EPyl47cCGCkgBygH/5tPzPqo2CUJdvFKF1TNsDM4Zwz3s4vGd3q-xS_FoKmg?size=1280x960&size_mode=3")
-            //.image.alt("Animation of sugar pouring into a mug of tea")
+            .image(builder.CardImage.create(session, "https://photos-6.dropbox.com/t/2/AABBhS94DJ1nJgzThLIJ9i5P7jHYHLz9TzQZm0CS5lO6Cw/12/315907919/png/32x32/1/_/1/2/Sugar.png/EPyl47cCGCkgBygH/5tPzPqo2CUJdvFKF1TNsDM4Zwz3s4vGd3q-xS_FoKmg?size=1280x960&size_mode=3"))
             .media([
                { url: 'https://dl.dropboxusercontent.com/content_link/EOsSabT9XBQoj2cuipbjNSK7MnDRzzlCl7YiyjZ9vLaocNCqENuvJnlzjXf78a5y/file?dl=0&duc_id=HsladKdKcqeYUCgpkt9xn3wmaF3Eb7v96lya796wkoCUwhe1Xc8ItobWY8NRukQr&raw=1&size=1280x960&size_mode=3' }
             ])
