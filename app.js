@@ -468,7 +468,7 @@ const aboutYouArray = {
         text: "1. Remove your outer garments."
                 + "\n2. Stand with your feet together."
                 + "\n3. Wrap a soft measuring tape straight and snug around the narrowest part of your waist.",
-        images: "http://www.diabetes.co.uk/images/article_images/measuring-waist.jpg",
+        images: "https://photos-6.dropbox.com/t/2/AAD4FY8mOObYHfUZR5ACPz9cFS93-tf2YFEzWNtNJGSncw/12/315907919/jpeg/32x32/1/_/1/2/Waist%20card.jpg/EPyl47cCGCwgBygH/UPbiXuNdhKN2BQ6GJEY6KAfIP7O9qaRKmJiMjis47FU?size=1280x960&size_mode=3",
         buttons: {
             button1: {
                 action: "waist",
@@ -486,7 +486,7 @@ const aboutYouArray = {
                 + "\n1. Remove your outer garments."
                 + "\n2. Stand with your feet together."
                 + "\n3. Wrap a soft measuring tape straight and snug around the widest part of your hips.",
-        images: "http://1.bp.blogspot.com/_Jp5PY2tunC0/TOtJ_3BejkI/AAAAAAAAADk/2-yHgQFCPic/s1600/hip.jpg",
+        images: "https://photos-6.dropbox.com/t/2/AACsG2v3Az7WU_nDu9oJ8Fe5FDckchHmSbHHi9OZRIcC4g/12/315907919/jpeg/32x32/1/_/1/2/Hips%20card.jpg/EPyl47cCGCogBygH/SbY99oHqfy5_j0BupJ9QoTxOaxTbyDVSfajuoisBIN4?size=1280x960&size_mode=3",
         buttons: {
             button1: {
                 action: "hips",
