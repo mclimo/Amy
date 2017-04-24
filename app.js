@@ -618,7 +618,7 @@ bot.dialog('/customerReceipt', [
         var msg = new builder.Message(session)
             .attachments([
                 new builder.ReceiptCard(session)
-                    .title("%s\'s Health Data", session.userData.name)
+                    .title("Nick's Health Data")//%s\'s Health Data", session.userData.name)
                     .items([
                         //builder.ReceiptItem.create(session, session.userData.gender, "Gender").image(builder.CardImage.create(session, "")),
                         //builder.ReceiptItem.create(session, "21.07.82", "Date of Birth").image(builder.CardImage.create(session, "")),
