@@ -486,7 +486,7 @@ const aboutYouArray = {
                 + "\n1. Remove your outer garments."
                 + "\n2. Stand with your feet together."
                 + "\n3. Wrap a soft measuring tape straight and snug around the widest part of your hips.",
-        images: "https://photos-6.dropbox.com/t/2/AACsG2v3Az7WU_nDu9oJ8Fe5FDckchHmSbHHi9OZRIcC4g/12/315907919/jpeg/32x32/1/_/1/2/Hips%20card.jpg/EPyl47cCGCogBygH/SbY99oHqfy5_j0BupJ9QoTxOaxTbyDVSfajuoisBIN4?size=1280x960&size_mode=3",
+        images: "https://pppamy.file.core.windows.net/pppamy/Hips card.jpg",
         buttons: {
             button1: {
                 action: "hips",
