@@ -1,6 +1,5 @@
 var builder = require('botbuilder');
 var restify = require('restify');
-//var Choices = require('prompt-choices');
 
 //=========================================================
 // Bot Setup
@@ -104,29 +103,13 @@ bot.dialog('/', [
         }
     },
     function (session, results) {
-        session.send("Hello " + session.userData.name + 
-                     " my name is Amy, welcome to the Health Age calculator from AXA PPP Proactive Health. " +
-                     "\nA couple of things before we get started, it will take us about 10 minutes to complete the calculation.");
-        builder.Prompts.confirm(session, "We are also going to ask some personal information about your health, is that OK?",  { listStyle: builder.ListStyle.button });       
-    },
-    function (session, results) {
-        if (results.response) {
-            session.send("That's great, to get the best calculation we're going to need the following information:"
-                    + "\n - Height and Weight (e.g. 1.78 m)"
-                    + "\n - Waist and Hip measurements (e.g. 82 cm)"
-                    + "\n - Blood pressure (e.g. 120/80 mmHg)"
-                    + "\n - Cholesterol level (e.g. 3.8 mmol/L)"
-                    + "\n - Fasting blood glucose level (e.g. 5.6 mmol/L)"
-                    + "\n - and some medical history of your immediate family members.");
-            builder.Prompts.confirm(session,"If you are missing any of this information, we can omit it for now and you can add it later."
-                    + "\n Would you like to continue to estimate your health age now?", { listStyle: builder.ListStyle.button });
-        } else {
-            session.endConversation("No problem, please come and talk to me again another time");
-        }    
+        session.send("Hello " + session.userData.name + "!" +
+                     " My name is Amy, welcome to the Health Age calculator. "+
+                     "\nDiscovering your Health Age is a great way of finding out how healthy you are compared to your real age. ");
+        builder.Prompts.confirm(session, "It will take you 5 to 10 minutes to complete the questionnaire. Are you ready to get started?",  { listStyle: builder.ListStyle.button });       
     },
     function (session, results) {
         if (results.response){
-            session.send("That's great, lets get started");
             session.beginDialog('/qOne');
         } else {
             session.endConversation("No problem, come back another time when you have more information to hand. I look forward to hearing from you soon.");
@@ -137,7 +120,7 @@ bot.dialog('/', [
 // Get name and store it in UserData
 bot.dialog('/getName', [
     function (session) {
-        builder.Prompts.text(session, 'Q.0 - Hi! Let me start by asking your name?');
+        builder.Prompts.text(session, 'Hi! Let me start by asking your name?');
     },
     function (session, results) {
         session.userData.name = results.response;
@@ -148,7 +131,7 @@ bot.dialog('/getName', [
 // 1 Gender
 bot.dialog('/qOne', [
     function (session) {
-        builder.Prompts.choice(session, "Q.1 - First we need some basic information about you, \n\nWhat is your gender?","Male|Female", { 
+        builder.Prompts.choice(session, "Lets find out about you! \n\nAre you a man or a woman?","Male|Female", { 
             listStyle: builder.ListStyle.button 
         });
     },
@@ -161,7 +144,7 @@ bot.dialog('/qOne', [
 // 2 Date of Birth
 bot.dialog('/qTwo', [
     function (session) {
-        builder.Prompts.text(session, 'Q.2 - What is your date of birth? (e.g. 01/01/1970)');
+        builder.Prompts.text(session, 'And what is your date of birth? (e.g. 01/01/1970)');
     },
     function (session, results) {
         session.userData.dob = results.response;
@@ -171,7 +154,7 @@ bot.dialog('/qTwo', [
 
 bot.dialog('/getHeight', [
     function (session) {
-        builder.Prompts.number(session, 'Q.3A - What is your Height in meters? (e.g. 1.76 m)');
+        builder.Prompts.number(session, 'What is your Height in meters? (e.g. 1.76 m)');
     },
     function (session, results) {
         var i = aboutYouWorking.indexOf("height");
@@ -182,7 +165,7 @@ bot.dialog('/getHeight', [
 ]);
 bot.dialog('/getWeight', [
     function (session) {
-        builder.Prompts.number(session, 'Q.3B - What is your Weight in Kilos? (e.g. 72.5 kg)');
+        builder.Prompts.number(session, 'What is your Weight in Kilos? (e.g. 72.5 kg)');
     },
     function (session, results) {
         var i = aboutYouWorking.indexOf("weight");
@@ -193,7 +176,7 @@ bot.dialog('/getWeight', [
 ]);
 bot.dialog('/getWaist', [
     function (session) {
-        builder.Prompts.number(session, 'Q.3C - What is your Waist measurement in centimeters? (e.g. 82 cm)');
+        builder.Prompts.number(session, 'What is your Waist measurement in centimeters? (e.g. 82 cm)');
     },
     function (session, results) {
         var i = aboutYouWorking.indexOf("waist");
@@ -204,7 +187,7 @@ bot.dialog('/getWaist', [
 ]);
 bot.dialog('/getHips', [
     function (session) {
-        builder.Prompts.number(session, 'Q.3D - What is your Hip measurement in centimeters? (e.g. 84 cm)');
+        builder.Prompts.number(session, 'What is your Hip measurement in centimeters? (e.g. 84 cm)');
     },
     function (session, results) {
         var i = aboutYouWorking.indexOf("hips");
@@ -217,16 +200,13 @@ bot.dialog('/getHips', [
 // 3 Family History of sudden illness
 bot.dialog('/qThree', [
     function (session) {
-        builder.Prompts.confirm(session, 'Q.4 - Now some medical history of your immediate family,'
-        +'\nPlease indicate if your Father, Mother, Brother or Sister have ever had:'
-        +'\n- Angina' 
-        +'\n- a Heart Attack, or'
-        +'\n- a Stroke.', { listStyle: builder.ListStyle.button });
+        builder.Prompts.confirm(session, 'Lets talk about your family.'
+        +'\nHave your mother, father, brother or sister ever have a heart attack, angina, or a stroke?', { listStyle: builder.ListStyle.button });
     },
     function (session, results) {
         session.userData.familyhistoryattack = results.response;
         if (session.userData.familyhistoryattack) {
-            session.send("I am very sorry to hear that. I need to ask some more questions");
+            session.send("I'm sorry to hear that. Would you mind filling out the information below to tell me a bit more?");
             familyCheck = false;
             session.beginDialog('/familyHistory');
         }
@@ -237,9 +217,9 @@ bot.dialog('/qThree', [
     }
 ]);
 
-const family = ["Father","Mother","Brother","Sister", "I'm done"];
+const family = ["father","mother","brother","sister", "I'm done"];
 var familyMembers = family;
-var who = "Q.4A - Who did this happen to?";
+var who = "Who did this happen to?";
 var whoElse = "Has this happened to any other members of your immediate family?";
 var familyCheck = false;
 
@@ -255,25 +235,25 @@ bot.dialog('/familyHistory', [
     function (session, results) {
         var person = results.response.entity;
         switch (person) {
-            case "Father":
+            case "father":
                 familyCheck = true;
                 var i = familyMembers.indexOf(person);
                 familyMembers.splice(i,1);
                 session.beginDialog("/attackage", person);  
                 break;
-            case "Mother":
+            case "mother":
                 familyCheck = true;
                 var i = familyMembers.indexOf(person);
                 familyMembers.splice(i,1);
                 session.beginDialog("/attackage", person);
                 break;
-            case "Brother":
+            case "brother":
                 familyCheck = true;
                 var i = familyMembers.indexOf(person);
                 familyMembers.splice(i,1);
                 session.beginDialog("/attackage", person);
                 break;
-            case "Sister":
+            case "sister":
                 familyCheck = true;
                 var i = familyMembers.indexOf(person);
                 familyMembers.splice(i,1);
@@ -291,7 +271,7 @@ bot.dialog('/familyHistory', [
 // attack age dialog
 bot.dialog("/attackage", [
     function (session, args) {
-        builder.Prompts.number(session, "Q.4C - At what age did this happen to your "+args+"?");
+        builder.Prompts.number(session, "At what age did this happen to your "+args+"?");
     },
     function (session, results) {
         session.userData.familyhistoryattack.age = results.response;   
@@ -303,16 +283,34 @@ bot.dialog("/attackage", [
 bot.dialog('/qFour', [
     function (session) {
         //session.send(session, "Please enter you Blood pressure level in ml/hg");
-        session.send("Q.5 - Getting there now."
-        + "\n\nNext I need to know your Blood pressure readings.");
-        builder.Prompts.number(session, 'Q.5A - Please enter your Systolic reading, this is the top number of your reading \n\n (mmHg)');
+        builder.Prompts.choice(session, "Can you tell me what your blood pressure is? If you don't know, "
+            + "you can ask your doctor and come back and update these anytime.", 
+            "Enter your blood pressure|I don't know",
+            { listStyle: builder.ListStyle.button});       
     },
+    function (session, results) {
+        switch (results.response.entity) {
+            case "Enter your blood pressure":
+                session.beginDialog('bloodPressure');
+                break;
+            case "I don't know":
+                session.beginDialog('/wasItHigh', "blood pressure");
+                break;
+        }
+    },
+    function (session, results) {
+        session.beginDialog('/qFive');
+    }
+]);
 
+bot.dialog('/bloodPressure', [
+    function (session) {
+        builder.Prompts.number(session, "Please enter your Systolic reading, this is the top number of your reading (mmHg)");
+    },
     function (session, results) {
         session.userData.bloodpressuresystolic = results.response;
-        builder.Prompts.number(session, 'Q.5B - Please enter your Diastolic reading, this is the botton number of your reading \n\n (mmHg)');
+        builder.Prompts.number(session, "Please enter your Diastolic reading, this is the botton number of your reading (mmHg)");
     },
-
     function (session, results) {
         session.userData.bloodpressurediastolic = results.response;
         session.beginDialog('/qFive');
@@ -322,44 +320,107 @@ bot.dialog('/qFour', [
 // 5 What is your cholesterol level?
 bot.dialog('/qFive', [
     function (session) {
-        builder.Prompts.number(session, 'Q.6 - Please enter you level of Cholesterol \n\n(mmol/L)');
+        session.send("Now let's look at you cholesterol level. This is made of 2 values: total cholesterol, and HDL.")
+        builder.Prompts.choice(session, "First, what is your total cholesterol level in mg/dL or mmol/L", 
+                            "Enter your total cholesterol level|I don't know",
+                            { listStyle: builder.ListStyle.button}) ;
     },
     function (session, results) {
-        session.userData.cholesterol = results.response;
+        switch (results.response.entity) {
+            case "Enter your total cholesterol level":
+                session.beginDialog('/cholesterol');
+                break;
+            case "I don't know":
+                session.userData.cholesterol = "Not known";
+                session.beginDialog('/wasItHigh', "cholesterol");
+                break;
+        }
+    },
+    function (session, results){
         session.beginDialog('/qSix');
+    }
+]);
+
+// Was it high?
+bot.dialog('/wasItHigh', [
+    function (session, args) {
+        //var highSubject = args;
+        //console.log(highSubject);
+        builder.Prompts.confirm(session, "Has your Doctor ever said your "+args+" was high?",{ listStyle: builder.ListStyle.button });
+    },
+    function (session, results) {
+        // FIX THAT THIS DOESNT WORK
+        //console.log("high Subject %s", highSubject);
+        //session.userData[highSubject].high = results.response;
+        session.endDialog();
+    }
+]);
+
+// Cholesterol collection dialog
+bot.dialog('/cholesterol', [
+    function (session) {
+        builder.Prompts.number(session, "Please enter your total cholesterol mg/dL or mmol/L");
+    },
+    function (session, results) {
+        session.userData.cholesterol.total = results.response;
+        builder.Prompts.number(session, "And what is your HDL cholesterol level in mg/dL or mmol/L?");
+    },
+    function (session, results) {
+        session.userData.cholesterol.HDL = results.response;
+        session.replaceDialog('/qSix');
     }
 ]);
 
 // 6 Do you smoke?
 bot.dialog('/qSix', [
     function (session) {
-        builder.Prompts.confirm(session, 'Q.7 - Do you smoke?', {listStyle: builder.ListStyle.button});
+        builder.Prompts.choice(session, 'How many cigarettes do you smoke per day?', 
+                            "Enter number of cigarettes|I don't smoke", 
+                            { listStyle: builder.ListStyle.button});
     },
     function (session, results) {
-        session.userData.smoker = results.response;
-        session.beginDialog('/results');
+        switch (results.response.entity) {
+            case "Enter number of cigarettes":
+                session.userData.smoker = "Yes";
+                session.beginDialog('/smoker');
+                break;
+            case "I don't smoke":
+                session.userData.smoker = "No";
+                session.beginDialog('/results');
+                break;
+        }
+    }
+]);
+
+bot.dialog('/smoker', [
+    function (session) {
+        builder.Prompts.number("How many do you smoke on average per day?");
+    },
+    function (session, results) {
+        session.userData.smoker.perDay = results.response;
+        session.replaceDialog('/results');
     }
 ]);
 
 // Results dialog
 bot.dialog('/results', [
     function (session) {
-        session.send("Q.R - Thank you for taking the time to complete these questions, our calculations show that you're Dynamic Health Age (DHA) is 39.5 years. "
-        + "\n\nFor a 34 year old this is __5.5 years too high__. "); 
-        builder.Prompts.choice(session, "Q.NS - Do you have time to look at some suggestions for improving your score in some key areas?",
-                "Show Me|My Health Data|I'm out of time",
+        session.send("Thank you for taking the time to complete these questions! Your Health Age is 68 Yrs 2 Mo, and you can reduce this by 17 yrs and 2 Mo."
+                    + "Have a look at your Health Age journey and progress at a glance.");
+        builder.Prompts.choice(session, "Q.NS - Do you want to see your results in more detail and find out how to make the right changes to improve your Health Age?",
+                "See my results|Update my Health Age|I'm done for today",
                 { listStyle: builder.ListStyle.button});
     },
     function (session, results) {
         switch (results.response.entity) {
-            case "Show Me":
+            case "See my results":
                 session.beginDialog('/resultsCarousel');
                 break;
-            case "My Health Data":
+            case "Update my Health Age":
                 session.beginDialog('/customerReceipt');
                 break;
-            case "I'm out of time":
-                session.endConversation("Thanks for taking the time to complete your DHA, come back with any updates to your information by just saying Hi");  
+            case "I'm done for today":
+                session.endConversation("Thank you for taking the time to complete your Health Age, come back with any updates to your information by just saying Hi");  
                 break;
         }
     }
@@ -441,8 +502,8 @@ const aboutYouArray = {
 };
 var aboutYouWorking = aboutYouMeasures;
 var aboutYouCheck = false;
-var aboutYouBasic1 = "Q.3a - Next some of your basic body measurements, please complete all of these.";
-var aboutYouBasic2 = "Q.3b - That's great, keep going";
+var aboutYouBasic1 = "What's your height and weight? If you're not sure, just enter what you think it is for now.";
+var aboutYouBasic2 = "That's great, keep going";
 
 // Dialog that contains the constructor for the About You carousel
 bot.dialog('/aboutYouCarousel', [
@@ -475,6 +536,16 @@ bot.dialog('/aboutYouCarousel', [
 
 function getCard (session, args) {
     aboutYouCheck = true;
+    if (!aboutYouArray[args].buttons.button2){
+        var buttons = [
+            builder.CardAction.dialogAction(session, aboutYouArray[args].buttons.button1.action, null, aboutYouArray[args].buttons.button1.title)
+        ]
+    } else {
+        var buttons = [
+            builder.CardAction.dialogAction(session, aboutYouArray[args].buttons.button1.action, null, aboutYouArray[args].buttons.button1.title),
+            builder.CardAction.dialogAction(session, aboutYouArray[args].buttons.button2.action, null, aboutYouArray[args].buttons.button2.title)
+        ]
+    }
     return [
         new builder.HeroCard(session)
             .title(aboutYouArray[args].title)
@@ -482,10 +553,7 @@ function getCard (session, args) {
             .images([
                 builder.CardImage.create(session, aboutYouArray[args].images)
                 ])
-            .buttons([
-                builder.CardAction.dialogAction(session, aboutYouArray[args].buttons.button1.action, null, aboutYouArray[args].buttons.button1.title),
-                builder.CardAction.dialogAction(session, aboutYouArray[args].buttons.button2.action, null, aboutYouArray[args].buttons.button2.title)
-            ])
+            .buttons(buttons)
     ]
 }
 
@@ -564,7 +632,7 @@ function getCardsAttachments2(session) {
 // Customer Data Receipt, ultimately for review and editing
 bot.dialog('/customerReceipt', [
     function (session) {
-        session.send("Q.RR - Here is a quick overview of the data you've entered");
+        session.send("Here is a quick overview of the data you've entered");
         var msg = new builder.Message(session)
             .attachments([
                 new builder.ReceiptCard(session)
@@ -603,7 +671,7 @@ bot.dialog('/customerReceipt', [
 //======================================================================================
 // REFERENCE DIALOGS
 //======================================================================================
-
+/*
 bot.dialog('/getDOB', [
     function (session) {
         builder.Prompts.time(session, 'Hi! What is your Date of Birth? e.g. 01/01/1972');
@@ -613,6 +681,7 @@ bot.dialog('/getDOB', [
         session.endDialog("Wow, you were born "+ session.userData.dob + " but you look so young!");
     }
 ]);
+
 
 // 7 Tell us the frequency, duration and intensity of your weekly activity
 // Need to work out how to phrase this
@@ -726,7 +795,7 @@ bot.dialog('/qSixteen', [
         session.beginDialog('/results');
     }
 ]);
-
+*/
 /*
 // Picture Card Setup Sample
 bot.dialog('/picture', [
