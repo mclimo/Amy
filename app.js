@@ -606,7 +606,7 @@ function getCardsAttachments(session) {
             .subtitle('Reducing your sugar intake will reduce your DHA by 0.5 years')
             .text('From the age of 11 we should have no more than 30g of added sugars (about 7 sugar cubes) in our diet every day.')
             //.image.url("")
-            .image.alt("Animation of sugar pouring into a mug of tea")
+            //.image.alt("Animation of sugar pouring into a mug of tea")
             .media([
                { url: 'http://www.nhs.uk/Livewell/Goodfood/PublishingImages/Sugar-gif-final-nowords_A.gif' }
             ])
