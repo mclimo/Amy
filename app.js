@@ -219,7 +219,7 @@ bot.dialog('/qThree', [
 
 const family = ["father","mother","brother","sister", "I'm done"];
 var familyMembers = family;
-var who = "Who did this happen to?";
+var who = "Which family member did this happen to?";
 var whoElse = "Has this happened to any other members of your immediate family?";
 var familyCheck = false;
 
@@ -291,7 +291,7 @@ bot.dialog('/qFour', [
     function (session, results) {
         switch (results.response.entity) {
             case "Enter your blood pressure":
-                session.beginDialog('bloodPressure');
+                session.beginDialog('/bloodPressure');
                 break;
             case "I don't know":
                 session.beginDialog('/wasItHigh', "blood pressure");
