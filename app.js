@@ -408,7 +408,7 @@ bot.dialog('/results', [
     function (session) {
         session.send("Thank you for taking the time to complete these questions! Your Health Age is 68 Yrs 2 Mo, and you can reduce this by 17 yrs and 2 Mo."
                     + "Have a look at your Health Age journey and progress at a glance.");
-        builder.Prompts.choice(session, "Q.NS - Do you want to see your results in more detail and find out how to make the right changes to improve your Health Age?",
+        builder.Prompts.choice(session, "Do you want to see your results in more detail and find out how to make the right changes to improve your Health Age?",
                 "See my results|Update my Health Age|I'm done for today",
                 { listStyle: builder.ListStyle.button});
     },
@@ -441,11 +441,11 @@ const aboutYouArray = {
             button1: {
                 action: "height",
                 title: "Enter your Height"
-            },
-            button2: {
-                action: "skip",
-                title: "I'll complete this later"
-            }
+            }//,
+            //button2: {
+            //    action: "skip",
+            //    title: "I'll complete this later"
+            //}
         }
     },
     "weight": {
@@ -521,7 +521,6 @@ bot.dialog('/aboutYouCarousel', [
         //var cards = getAboutYouCardsAttachments();
         for (i=0; i<aboutYouWorking.length;i++) {
                 cards.push(getCard(session, aboutYouWorking[i]));
-                console.log(aboutYouWorking);
         }
         // bring the arrays up one level
         var cardsFinal = cards.concat(cards[0],cards[1],cards[2],cards[3]);        
@@ -561,7 +560,7 @@ function getCard (session, args) {
 // Dialog that contains the constructor for the Results carousel
 bot.dialog('/resultsCarousel', [
     function (session) {   
-        var cards = getCardsAttachments2();
+        var cards = getCardsAttachments();
 
         // create reply with Carousel AttachmentLayout
         var reply = new builder.Message(session)
@@ -573,7 +572,7 @@ bot.dialog('/resultsCarousel', [
 ]);
 
 // method providing cards for the Results Carousel
-function getCardsAttachments2(session) {
+function getCardsAttachments(session) {
     return [
         new builder.VideoCard(session)
             .title('How to start Running: Couch to 5k')
