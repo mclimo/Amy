@@ -395,10 +395,10 @@ bot.dialog('/qSix', [
 
 bot.dialog('/smoker', [
     function (session) {
-        builder.Prompts.number("How many do you smoke on average per day?");
+        builder.Prompts.number(session, "How many cigarettes do you smoke on average per day?");
     },
     function (session, results) {
-        session.userData.smoker.perDay = results.response;
+        session.userData.smokerPerDay = results.response;
         session.replaceDialog('/results');
     }
 ]);
