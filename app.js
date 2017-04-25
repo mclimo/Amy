@@ -619,19 +619,17 @@ bot.dialog('/customerReceipt', [
             .attachments([
                 new builder.ReceiptCard(session)
                     .title("%s\'s Health Data", session.userData.name)
-                    //.facts([builder.Fact.create(session, "Value 1", "Value 2")])
                     .items([
-                        //builder.ReceiptItem.create(session, session.userData.gender, "Gender").image(builder.CardImage.create(session, "")),
-                        //builder.ReceiptItem.create(session, "21.07.82", "Date of Birth").image(builder.CardImage.create(session, "")),
-                        builder.ReceiptItem.create(session, "1.76 m", "Height").image(builder.CardImage.create(session, "")),
-                        builder.ReceiptItem.create(session, "72.4 kg", "Weight").image(builder.CardImage.create(session, "")),
-                        //builder.ReceiptItem.create(session, "82 cm", "Waist Measurement"),//.image(builder.CardImage.create(session, "")),
-                        //builder.ReceiptItem.create(session, "84 cm", "Hip Measurement"),//.image(builder.CardImage.create(session, "")),                        
-                        //builder.ReceiptItem.create(session, "125 93 mmHg", "Blood Pressure")//.image(builder.CardImage.create(session, "")),
-                        //builder.ReceiptItem.create(session, "5.6 mmol\\L", "Fasting Glucose")//.image(builder.CardImage.create(session, ""))                       
-                        //builder.ReceiptItem.create(session, "5.6 mmol\\L", "Cholesterol").image(builder.CardImage.create(session, ""))
-                        //builder.ReceiptItem.create(session, "No", "Diabetic").image(builder.CardImage.create(session, "")),
-                        //builder.ReceiptItem.create(session, "Yes", "Smoker").image(builder.CardImage.create(session, ""))                       
+                        builder.ReceiptItem.create(session, session.userData.gender, "Gender"),
+                        builder.ReceiptItem.create(session, "01.01.1980", "Date of Birth"),
+                        builder.ReceiptItem.create(session, session.userData.height+" m", "Height"),
+                        builder.ReceiptItem.create(session, session.userData.weight+ " kg", "Weight"),
+                        builder.ReceiptItem.create(session, session.userData.waist+ " cm", "Waist Measurement"),
+                        builder.ReceiptItem.create(session, session.userData.hips+" cm", "Hip Measurement"),         
+                        builder.ReceiptItem.create(session, session.userData.bloodpressuresystolic +" / "+session.userData.bloodpressurediastolic, "Blood Pressure"),
+                        builder.ReceiptItem.create(session, session.userData.cholesterolTotal+" mmol\\L", "Total cholesterol"),
+                        builder.ReceiptItem.create(session, session.userData.cholesterolHDL+" mmol\\L", "HDL cholesterol"),
+                        builder.ReceiptItem.create(session, session.userData.smoker, "Smoker")  
                     ])
                     .total("Health Age is 68 Yrs 2 Mo")
             ]);
