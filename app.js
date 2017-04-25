@@ -110,7 +110,7 @@ bot.dialog('/', [
     },
     function (session, results) {
         if (results.response){
-            session.beginDialog('/results');
+            session.beginDialog('/qOne');
         } else {
             session.endConversation("No problem, come back another time when you have more information to hand. I look forward to hearing from you soon.");
         }
@@ -601,13 +601,13 @@ function getCardsAttachments(session) {
             .title("Diet Tip: How to cut down on Sugar")
             .subtitle("Reducing your sugar intake will reduce your DHA by 0.5 years")
             .text("From the age of 11 we should have no more than 30g of added sugar (about 7 sugar cubes) in our diet every day.")
-            .image(builder.CardImage.create(session, "https://photos-6.dropbox.com/t/2/AAA_DVVdmfuR631Gp87mMAtVDjw1QyvwXozV6Rpvhp-SCA/12/315907919/jpeg/32x32/1/_/1/2/SugarThumbnail.jpg/EPyl47cCGC0gBygH/7NfMZ_3uXyAuokUIvDyebJyowfsTHL-0qdh4dozFLJc?size=32x32&size_mode=5"))
+            .image(builder.CardImage.create(session, "https://drive.google.com/file/d/0Bz7wIzeGyNusWVdSSmJRMU5hcnM/"))
             .media([
-               { url: "https://dl.dropboxusercontent.com/content_link/EOsSabT9XBQoj2cuipbjNSK7MnDRzzlCl7YiyjZ9vLaocNCqENuvJnlzjXf78a5y/file?dl=0&duc_id=HsladKdKcqeYUCgpkt9xn3wmaF3Eb7v96lya796wkoCUwhe1Xc8ItobWY8NRukQr&raw=1&size=1280x960&size_mode=3" }
+               { url: "https://drive.google.com/file/d/0Bz7wIzeGyNusZ2xzZjhSaFN1NHM/edit" }
             ])
-            .buttons([
-                builder.CardAction.openUrl(session, "http://www.nhs.uk/Livewell/Goodfood/Pages/how-to-cut-down-on-sugar-in-your-diet.aspx", "10 Practical Tips")
-            ])
+            //.buttons([
+            //    builder.CardAction.openUrl(session, "http://www.nhs.uk/Livewell/Goodfood/Pages/how-to-cut-down-on-sugar-in-your-diet.aspx", "10 Practical Tips")
+            //])
     ];
 }
 
