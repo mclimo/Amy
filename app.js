@@ -631,7 +631,7 @@ bot.dialog('/customerReceipt', [
                         builder.ReceiptItem.create(session, session.userData.cholesterolHDL+" mmol\\L", "HDL cholesterol"),
                         builder.ReceiptItem.create(session, session.userData.smoker, "Smoker")  
                     ])
-                    .total("Health Age is 68 Yrs 2 Mo")
+                    .total("Health Age: 68 Yrs")
             ]);
             console.log(msg);
         session.send(msg);
