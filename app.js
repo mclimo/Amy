@@ -110,7 +110,7 @@ bot.dialog('/', [
     },
     function (session, results) {
         if (results.response){
-            session.beginDialog('/qOne');
+            session.beginDialog('/results');
         } else {
             session.endConversation("No problem, come back another time when you have more information to hand. I look forward to hearing from you soon.");
         }
@@ -618,12 +618,13 @@ bot.dialog('/customerReceipt', [
         var msg = new builder.Message(session)
             .attachments([
                 new builder.ReceiptCard(session)
-                    .title("Nick's Health Data")//%s\'s Health Data", session.userData.name)
+                    .title("%s\'s Health Data", session.userData.name)
+                    //.facts([builder.Fact.create(session, "Value 1", "Value 2")])
                     .items([
                         //builder.ReceiptItem.create(session, session.userData.gender, "Gender").image(builder.CardImage.create(session, "")),
                         //builder.ReceiptItem.create(session, "21.07.82", "Date of Birth").image(builder.CardImage.create(session, "")),
-                        builder.ReceiptItem.create(session, "1.76 m", "Height"),//.image(builder.CardImage.create(session, "")),
-                        builder.ReceiptItem.create(session, "72.4 kg", "Weight"),//.image(builder.CardImage.create(session, "")),
+                        builder.ReceiptItem.create(session, "1.76 m", "Height").image(builder.CardImage.create(session, "")),
+                        builder.ReceiptItem.create(session, "72.4 kg", "Weight").image(builder.CardImage.create(session, "")),
                         //builder.ReceiptItem.create(session, "82 cm", "Waist Measurement"),//.image(builder.CardImage.create(session, "")),
                         //builder.ReceiptItem.create(session, "84 cm", "Hip Measurement"),//.image(builder.CardImage.create(session, "")),                        
                         //builder.ReceiptItem.create(session, "125 93 mmHg", "Blood Pressure")//.image(builder.CardImage.create(session, "")),
@@ -632,7 +633,9 @@ bot.dialog('/customerReceipt', [
                         //builder.ReceiptItem.create(session, "No", "Diabetic").image(builder.CardImage.create(session, "")),
                         //builder.ReceiptItem.create(session, "Yes", "Smoker").image(builder.CardImage.create(session, ""))                       
                     ])
+                    .total("Health Age is 68 Yrs 2 Mo")
             ]);
+            console.log(msg);
         session.send(msg);
         builder.Prompts.choice(session, "How about looking at your health and wellbeing tips to improve these numbers?",
             "Show Me My Tips|I'm out of time",
