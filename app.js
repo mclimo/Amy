@@ -481,9 +481,8 @@ const aboutYouArray = {
         }
     },
     "hips": {
-        title: "How to Measure Your Hips",
-        text: "To correctly measure your Hips:"
-                + "\n1. Remove your outer garments."
+        title:  "How to Measure Your Hips",
+        text:   "1. Remove your outer garments."
                 + "\n2. Stand with your feet together."
                 + "\n3. Wrap a soft measuring tape straight and snug around the widest part of your hips.",
         images: "https://assistantamy.files.wordpress.com/2017/04/hips_card.jpg",
