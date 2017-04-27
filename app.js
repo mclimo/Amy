@@ -577,7 +577,7 @@ function getCardsAttachments(session) {
             .text("Just because you don’t run doesn’t mean you can’t.")
             .image(builder.CardImage.create(session, "https://ichef.bbci.co.uk/images/ic/480xn/p03mn4lx.jpg"))
             .media([
-                   { url: "https://youtu.be/of0FZaSRk60?t=2s" }
+                   { url: "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4" }
             ])
             .buttons([
                    builder.CardAction.openUrl(session, "https://www.nhs.uk/oneyou/apps#row-179', 'One You Couch to 5k app"),
