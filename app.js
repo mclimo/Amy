@@ -409,7 +409,7 @@ bot.dialog('/results', [
         var msg = new builder.Message(session)
             .attachments([{
                 contentType: "image/jpeg",
-                contentUrl: "https://www.axappphealthcare.co.uk/uploadedImages/Widget_Content_%28PB%29/Products/Corporate/Health_services/healthgateway-both.jpg"
+                contentUrl: "https://assistantamy.files.wordpress.com/2017/04/result_screen.jpg"
             }]);
         session.send(msg);
         session.send("Thank you for taking the time to complete these questions! Your Health Age is 68 Yrs 2 Mo, and you can reduce this by 17 yrs and 2 Mo. "
@@ -468,7 +468,7 @@ const aboutYouArray = {
         text: "1. Remove your outer garments."
                 + "\n2. Stand with your feet together."
                 + "\n3. Wrap a soft measuring tape straight and snug around the narrowest part of your waist.",
-        images: "https://pppamy.file.core.windows.net/pppamy/Waist_card.jpg",
+        images: "https://assistantamy.files.wordpress.com/2017/04/waist_card.jpg",
         buttons: {
             button1: {
                 action: "waist",
@@ -486,7 +486,7 @@ const aboutYouArray = {
                 + "\n1. Remove your outer garments."
                 + "\n2. Stand with your feet together."
                 + "\n3. Wrap a soft measuring tape straight and snug around the widest part of your hips.",
-        images: "https://pppamy.file.core.windows.net/pppamy/Hips_card.jpg",
+        images: "https://assistantamy.files.wordpress.com/2017/04/hips_card.jpg",
         buttons: {
             button1: {
                 action: "hips",
@@ -601,9 +601,9 @@ function getCardsAttachments(session) {
             .title("Diet Tip: How to cut down on Sugar")
             .subtitle("Reducing your sugar intake will reduce your DHA by 0.5 years")
             .text("From the age of 11 we should have no more than 30g of added sugar (about 7 sugar cubes) in our diet every day.")
-            .image(builder.CardImage.create(session, "https://drive.google.com/file/d/0Bz7wIzeGyNusWVdSSmJRMU5hcnM/"))
+            .image(builder.CardImage.create(session, "https://assistantamy.files.wordpress.com/2017/04/sugarthumbnail.jpg"))
             .media([
-               { url: "https://drive.google.com/file/d/0Bz7wIzeGyNusZ2xzZjhSaFN1NHM/edit" }
+               { url: "https://assistantamy.files.wordpress.com/2017/04/sugar.gif" }
             ])
             //.buttons([
             //    builder.CardAction.openUrl(session, "http://www.nhs.uk/Livewell/Goodfood/Pages/how-to-cut-down-on-sugar-in-your-diet.aspx", "10 Practical Tips")
