@@ -574,7 +574,7 @@ function getCardsAttachments(session) {
             .title("How to start Running: Couch to 5k")
             .subtitle("Reduce your DHA by 2.5 years")
             .text("Just because you don’t run doesn’t mean you can’t.")
-            .image(builder.CardImage.create(session, "https://assistantamy.files.wordpress.com/2017/04/runners.jpg"))
+            .image(builder.CardImage.create(session, "https://assistantamy.files.wordpress.com/2017/04/runners.jpg?w=816&h=9999"))
             .media([
                    { url: "https://youtu.be/of0FZaSRk60?t=2s" }
             ])
