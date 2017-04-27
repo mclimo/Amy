@@ -578,10 +578,11 @@ function getCardsAttachments(session) {
             .media([
                    { url: "https://youtu.be/of0FZaSRk60?t=2s" }
             ])
-            .buttons([
-                   builder.CardAction.openUrl(session, "https://www.nhs.uk/oneyou/apps#row-179', 'One You Couch to 5k app"),
-                   builder.CardAction.openUrl(session, "http://downloads.bbc.co.uk/scotland/makeyourmove/c25k_printable_plan.pdf", 'Download Plan as a document')
-            ]),
+            //.buttons([
+            //       builder.CardAction.openUrl(session, "https://www.nhs.uk/oneyou/apps#row-179', 'One You Couch to 5k app"),
+            //       builder.CardAction.openUrl(session, "http://downloads.bbc.co.uk/scotland/makeyourmove/c25k_printable_plan.pdf", 'Download Plan as a document')
+            //])
+            ,
 
         new builder.HeroCard(session)
             .title("How to Stop Smoking")
@@ -590,10 +591,11 @@ function getCardsAttachments(session) {
             .images([
                 builder.CardImage.create(session, "http://www.deanspharmacy.co.uk/kilmarnock/services/stop-smoking-clinics/nhs-prescriptions.jpg")
             ])
-            .buttons([
-                builder.CardAction.openUrl(session, "http://nhs.uk/oneyou/sfreei", "iTunes"),
-                builder.CardAction.openUrl(session, "http://nhs.uk/oneyou/sfreea", "Google Play")
-            ]),
+            //.buttons([
+            //    builder.CardAction.openUrl(session, "http://nhs.uk/oneyou/sfreei", "iTunes"),
+            //    builder.CardAction.openUrl(session, "http://nhs.uk/oneyou/sfreea", "Google Play")
+            //])
+            ,
 
         new builder.AnimationCard(session)
             .title("Diet Tip: How to cut down on Sugar")
