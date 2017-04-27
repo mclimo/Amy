@@ -559,6 +559,9 @@ function getCard (session, args) {
 bot.dialog('/resultsCarousel', [
     function (session) {   
         var cards = getCardsAttachments();
+        var msg = new builder.Message(session);
+        msg.addAttachment({contentType: 'video/mp4', contentUrl: 'https://youtu.be/of0FZaSRk60?t=2s'});
+        session.send(msg);
 
         // create reply with Carousel AttachmentLayout
         var reply = new builder.Message(session)
