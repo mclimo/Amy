@@ -573,11 +573,11 @@ function getCardsAttachments(session) {
     return [
         new builder.VideoCard(session)
             .title("How to start Running: Couch to 5k")
-            .subtitle("More vigerous exercise will reduce your DHA by 2.5 years")
+            .subtitle("Reduce your DHA by 2.5 years")
             .text("Just because you don’t run doesn’t mean you can’t.")
             .image(builder.CardImage.create(session, "https://ichef.bbci.co.uk/images/ic/480xn/p03mn4lx.jpg"))
             .media([
-                   { url: "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4" }
+                   { url: "https://youtu.be/of0FZaSRk60?t=2s" }
             ])
             .buttons([
                    builder.CardAction.openUrl(session, "https://www.nhs.uk/oneyou/apps#row-179', 'One You Couch to 5k app"),
@@ -586,7 +586,7 @@ function getCardsAttachments(session) {
 
         new builder.HeroCard(session)
             .title("How to Stop Smoking")
-            .subtitle("Stopping Smoking will reduce your DHA by 1.5 years")
+            .subtitle("Reduce your DHA by 1.5 years")
             .text("Find out practical, quick and simple steps you can take NOW to quit successfully.")
             .images([
                 builder.CardImage.create(session, "http://www.deanspharmacy.co.uk/kilmarnock/services/stop-smoking-clinics/nhs-prescriptions.jpg")
@@ -598,7 +598,7 @@ function getCardsAttachments(session) {
 
         new builder.AnimationCard(session)
             .title("Diet Tip: How to cut down on Sugar")
-            .subtitle("Reducing your sugar intake will reduce your DHA by 0.5 years")
+            .subtitle("Reduce your DHA by 0.5 years")
             .text("From the age of 11 we should have no more than 30g of added sugar (about 7 sugar cubes) in our diet every day.")
             .image(builder.CardImage.create(session, "https://assistantamy.files.wordpress.com/2017/04/sugarthumbnail.jpg"))
             .media([
