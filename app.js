@@ -112,7 +112,7 @@ bot.dialog('/', [
     },
     function (session, results) {
         if (results.response){
-            session.beginDialog('/qOne');
+            session.beginDialog('/results');
         } else {
             session.endConversation("No problem, come back another time when you have more information to hand. I look forward to hearing from you soon.");
         }
@@ -572,14 +572,16 @@ bot.dialog('/resultsCarousel', [
 // method providing cards for the Results Carousel
 function getCardsAttachments(session) {
     return [
-        new builder.VideoCard(session)
+        new builder.HeroCard(session)
             .title("How to start Running: Couch to 5k")
             .subtitle("Reduce your DHA by 2.5 years")
             .text("Just because you don’t run doesn’t mean you can’t.")
-            .image(builder.CardImage.create(session, "https://assistantamy.files.wordpress.com/2017/04/runners.jpg?w=816&h=9999"))
-            .media([
-                   { url: "https://youtu.be/of0FZaSRk60?t=2s" }
+            .images([
+                builder.CardImage.create(session, "https://media1.popsugar-assets.com/files/thumbor/MYFCj2Ez9kKKtyQxptbciLiRTwE/fit-in/550x550/filters:format_auto-!!-:strip_icc-!!-/2013/02/06/4/192/1922729/dd6f121db579f672_run.jpg")
             ])
+            //.media([
+            //       { url: "https://youtu.be/of0FZaSRk60?t=2s" }
+            //])
             //.buttons([
             //       builder.CardAction.openUrl(session, "https://www.nhs.uk/oneyou/apps#row-179', 'One You Couch to 5k app"),
             //       builder.CardAction.openUrl(session, "http://downloads.bbc.co.uk/scotland/makeyourmove/c25k_printable_plan.pdf", 'Download Plan as a document')
@@ -599,14 +601,16 @@ function getCardsAttachments(session) {
             //])
             ,
 
-        new builder.AnimationCard(session)
+        new builder.HeroCard(session)
             .title("Diet Tip: How to cut down on Sugar")
             .subtitle("Reduce your DHA by 0.5 years")
             .text("From the age of 11 we should have no more than 30g of added sugar (about 7 sugar cubes) in our diet every day.")
-            .image(builder.CardImage.create(session, "https://assistantamy.files.wordpress.com/2017/04/sugarthumbnail.jpg"))
-            .media([
-               { url: "https://assistantamy.files.wordpress.com/2017/04/sugar.gif" }
+            .images([
+                builder.CardImage.create(session, "https://assistantamy.files.wordpress.com/2017/04/sugarthumbnail.jpg")
             ])
+            //.media([
+            //   { url: "https://assistantamy.files.wordpress.com/2017/04/sugar.gif" }
+            //])
             //.buttons([
             //    builder.CardAction.openUrl(session, "http://www.nhs.uk/Livewell/Goodfood/Pages/how-to-cut-down-on-sugar-in-your-diet.aspx", "10 Practical Tips")
             //])
@@ -667,14 +671,19 @@ server.get('/api/CustomWebApi', (req, res, next) => {
 
 // send simple notification
 function sendProactiveMessage(session, address) {
-  var msg = new builder.Message().address(address);
-        //.attachments([{
-        //    contentType: "image/jpeg",
-        //    contentUrl: "https://assistantamy.files.wordpress.com/2017/04/result_screen.jpg"
-        //}]);
-  msg.text("When we measured your Health Age, your weight was %s kg. Now you've finished your Couch to 5k program let me know your new weight and I'll calculate how that has reduced your Health Age.", session.userData.weight);
-  msg.textLocale('en-US');
-  bot.send(msg);
+    var picture = new builder.Message()
+    .attachments([{
+            contentType: "image/jpeg",
+            contentUrl: "https://assistantamy.files.wordpress.com/2017/04/result_screen.jpg"
+    }])
+    .address(address);
+    bot.send(picture);
+    var msg = new builder.Message().address(address);
+
+    msg.text("Hi %s, \n\nWhen we first measured your Health Age, your weight was %s kg. Now you've finished your Couch to 5k program let me know your new weight and I'll calculate how that has reduced your Health Age.", session.userData.name, session.userData.weight);
+    msg.textLocale('en-US');
+    bot.send(msg);
+    bot.beginDialog(savedAddress, '/endConversation');
 }
 
 // Dialog to demo a Proactive Message
@@ -682,6 +691,15 @@ bot.dialog ('/proactive', [
     function (session) {
         setTimeout(() => {
             sendProactiveMessage(session, savedAddress);
-        }, 5000);
+        }, 10000);
+    }//,
+    //function (session, results) {
+    //    session.endConversation();
+    //}
+]);
+
+bot.dialog ('/endConversation', [
+    function (session){
+        session.endConversation();
     }
 ]);
