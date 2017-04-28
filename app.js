@@ -84,6 +84,8 @@ bot.beginDialogAction('skip', '/qThree');
 //var intents = new builder.IntentDialog();
 bot.dialog('/', [
     function (session, args, next) {
+        session.userData.weight = "72.3 kg";
+        savedAddress = session.message.address;
         if (!session.userData.name) {
             var msg = new builder.Message(session)
             .attachments([{
@@ -563,7 +565,7 @@ bot.dialog('/resultsCarousel', [
             .attachmentLayout(builder.AttachmentLayout.carousel)
             .attachments(cards);
         session.send(reply);
-        session.endConversation();
+        session.beginDialog('/proactive');
     }
 ]);
 
@@ -648,6 +650,39 @@ bot.dialog('/customerReceipt', [
                 session.endConversation("Thanks for taking the time to complete your DHA, come back with any updates to your information by just saying Hi");  
                 break;
         }
+    }
+]);
+
+//======================================================================================
+// Proactive Messages
+//======================================================================================
+
+// Do GET this endpoint to deliver a notification
+server.get('/api/CustomWebApi', (req, res, next) => {
+    sendProactiveMessage(savedAddress);
+    res.send('triggered');
+    next();
+  }
+);
+
+// send simple notification
+function sendProactiveMessage(session, address) {
+  var msg = new builder.Message().address(address)
+        .attachments([{
+            contentType: "image/jpeg",
+            contentUrl: "https://assistantamy.files.wordpress.com/2017/04/result_screen.jpg"
+        }]);
+  msg.text("When we measured your Health Age, your weight was %s. Now you've finished your Couch to 5k program let me know your new weight and I'll calculate how that has reduced your Health Age.", session.userData.weight);
+  msg.textLocale('en-US');
+  bot.send(msg);
+}
+
+// Dialog to demo a Proactive Message
+bot.dialog ('/proactive', [ 
+    function (session) {
+        setTimeout(() => {
+            sendProactiveMessage(session, savedAddress);
+        }, 10000);
     }
 ]);
 
