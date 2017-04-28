@@ -112,7 +112,7 @@ bot.dialog('/', [
     },
     function (session, results) {
         if (results.response){
-            session.beginDialog('/results');
+            session.beginDialog('/qOne');
         } else {
             session.endConversation("No problem, come back another time when you have more information to hand. I look forward to hearing from you soon.");
         }
@@ -575,7 +575,7 @@ function getCardsAttachments(session) {
         new builder.HeroCard(session)
             .title("How to start Running: Couch to 5k")
             .subtitle("Reduce your DHA by 2.5 years")
-            .text("Just because you don’t run doesn’t mean you can’t.")
+            .text("Just because you don’t run doesn’t mean you can’t. Take your first steps to becoming a runner.")
             .images([
                 builder.CardImage.create(session, "https://media1.popsugar-assets.com/files/thumbor/MYFCj2Ez9kKKtyQxptbciLiRTwE/fit-in/550x550/filters:format_auto-!!-:strip_icc-!!-/2013/02/06/4/192/1922729/dd6f121db579f672_run.jpg")
             ])
