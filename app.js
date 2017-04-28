@@ -671,13 +671,6 @@ server.get('/api/CustomWebApi', (req, res, next) => {
 
 // send simple notification
 function sendProactiveMessage(session, address) {
-    var picture = new builder.Message()
-    .attachments([{
-            contentType: "image/jpeg",
-            contentUrl: "https://assistantamy.files.wordpress.com/2017/04/result_screen.jpg"
-    }])
-    .address(address);
-    bot.send(picture);
     var msg = new builder.Message().address(address);
 
     msg.text("Hi %s, \n\nWhen we first measured your Health Age, your weight was %s kg. Now you've finished your Couch to 5k program let me know your new weight and I'll calculate how that has reduced your Health Age.", session.userData.name, session.userData.weight);
