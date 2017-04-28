@@ -84,7 +84,7 @@ bot.beginDialogAction('skip', '/qThree');
 //var intents = new builder.IntentDialog();
 bot.dialog('/', [
     function (session, args, next) {
-        session.userData.weight = "72.3 kg";
+        //session.userData.weight = "72.3 kg";
         savedAddress = session.message.address;
         if (!session.userData.name) {
             var msg = new builder.Message(session)
